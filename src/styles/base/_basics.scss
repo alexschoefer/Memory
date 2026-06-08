@@ -1,6 +1,27 @@
+@use '../abstract/mixin' as *;
+@use '../abstract/variables' as *;
+
 body {
     height: 100vh;
     margin: 0;
     box-sizing: border-box;
     position: relative;
+    @include flex-center;
+    background-color: var(--color-bg);
+}
+
+h1 {
+    font-family: 'Alamari';
+    font-weight: 400;
+    font-size: 48px;
+}
+
+h2 {
+    font-family: 'Red Rose';
+    font-weight: 700;
+    font-size: 140px;
+}
+
+p {
+    font-family: $font-body;
 }

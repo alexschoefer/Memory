@@ -1,0 +1,17 @@
+// Importing the basics styles
+@use "/src/styles/base/basics";
+@use "/src/styles/base/fonts";
+
+// Importing the abstract styles
+@use "/src/styles/abstract/mixin";
+@use "/src/styles/abstract/variables";
+
+// Importing the main layout styles
+
+// Import the pages styles
+@use "/src/styles/pages/startpage";
+
+// Import the components styles
+
+// Import the theme styles
+@use "/src/styles/themes/start";

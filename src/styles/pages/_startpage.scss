@@ -1,0 +1,13 @@
+@use '../abstract/mixin' as *;
+@use '../abstract/variables' as *;
+
+.start {
+    color:$color-wh;
+
+    p {
+        font-family: $font-body;
+        font-weight: 700;
+        font-size: $fs-xxl;
+        @include no-block-margins;
+    }
+}
