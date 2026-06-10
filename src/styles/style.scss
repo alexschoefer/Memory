@@ -8,10 +8,12 @@
 
 // Importing the main layout styles
 
+
 // Import the pages styles
 @use "/src/styles/pages/startpage";
 
 // Import the components styles
+@use "/src/styles/components/buttons";
 
 // Import the theme styles
 @use "/src/styles/themes/start";

@@ -10,4 +10,37 @@
         font-size: $fs-xxl;
         @include no-block-margins;
     }
+
+    button {
+        @include flex-center;
+        flex-direction: row;
+        font-family: $font-body;
+        font-size: $fs-lg;
+        font-weight: $fw-bold;
+        gap: 20px;
+
+        span:first-child {
+            background-image: url("/public/assets/img/startpage/stadia_controller.png");
+            @include background-img-setup;
+            height: 32px;
+            width: 44px;
+        }
+
+        span:last-child {
+            background-image: url("/public/assets/img/startpage/arrow_right.png");
+            @include background-img-setup;
+            width: 33px;
+            height: 15px; 
+        }
+    }
+
+    &__img {
+        background-image: url("/public/assets/img/startpage/stadia_start_img.png");
+        @include background-img-setup;
+        height: 420px;
+        width: 300px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
 }

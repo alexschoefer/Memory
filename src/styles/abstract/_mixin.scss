@@ -20,4 +20,10 @@
 @mixin no-block-margins {
     margin-block-start: 0;
     margin-block-end: 0;
-  }
+}
+
+@mixin background-img-setup {
+    pointer-events: none;
+    background-repeat: no-repeat;
+    background-size: contain;
+}

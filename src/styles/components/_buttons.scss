@@ -1,0 +1,25 @@
+button {
+    padding: 20px 24px;
+    background-color: #f0ea6e;
+    cursor: pointer;
+    border: none;
+
+    &:hover {
+        transform: scale(1.05);
+
+        span:first-child {
+            transform: rotate(-15deg);
+        }
+
+        span:last-child {
+            transform:scale(1.7);
+            transition: transform 0.3s ease;
+        }
+    }
+
+    &.is-disabled {
+        background-color: #DBDBD6;
+        color: #A3A1A1;
+        pointer-events: none;
+    }
+}
