@@ -26,8 +26,6 @@ export function init() {
  */
 export function showCurrentPage(id: string) {
     const pages = document.querySelectorAll<HTMLElement>(".page");
-    console.log(pages);
-
     pages.forEach((page) => {
         page.classList.toggle("page--active", page.id === id);
     });

@@ -1,0 +1,137 @@
+@use '../abstract/mixin' as *;
+@use '../abstract/variables' as *;
+
+.settings {
+
+    p {
+        font-family: $font-content;
+        font-size: $fs-sm;
+    }
+
+    &__content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__header {
+
+        width: 251px;
+        height: 67px;
+        margin-bottom: 48px;
+
+        h2 {
+            @include no-block-margins;
+            font-size: $fs-xl;
+            padding-left: 32px;
+        }
+    }
+
+    &__left-side-container {
+        width: 1100px;
+        height: 100%;
+        align-items: flex-start;
+    }
+
+    &__right_side_container {
+        width: 580px;
+        height: 100%;
+        align-items: flex-end;
+    }
+
+    input {
+        cursor: pointer;
+    }
+
+    label {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        cursor: pointer;
+    }
+
+    input[type="radio"] {
+        display: none;
+    }
+
+    .radio {
+        width: 24px;
+        height: 24px;
+        border: 2px solid #303131;
+        border-radius: 50%;
+        position: relative;
+    }
+
+    input[type="radio"]:checked+.radio::after {
+        content: "";
+        position: absolute;
+        inset: 6px;
+        background: #303131;
+        border-radius: 50%;
+    }
+
+    li {
+        font-family: $font-content;
+        font-size: $fs-sm;
+        @include flex-row-space-btw;
+        cursor: pointer;
+        justify-content: flex-start;
+        gap: 16px;
+        padding-bottom: 12px;
+    }
+
+    &__game-mode {
+        width: 300px;
+        gap: 12px;
+        padding-left: 44px;
+        margin-top: 24px;
+    }
+
+    &__game-mode-header {
+        @include flex-row-center;
+        justify-content: flex-start;
+        gap: 8px;
+        width: 244px;
+        height: 32px;
+    }
+
+    &__theme_visual {
+        @include background-img-setup;
+        height: 400px;
+        width: 400px;
+
+        &--gaming {
+            background-image: url("/public/assets/img/settings/gaming_theme.png");
+        }
+
+        &--coding {
+            background-image: url("/public/assets/img/settings/it\ logos_theme.png");
+        }
+
+        &--projects {
+            background-image: url("/public/assets/img/settings/da\ projects_theme.png");
+        }
+
+        &--food {
+            background-image: url("/public/assets/img/settings/foods_theme.png");
+        }
+    }
+
+    &__theme_visual-selection_infoboard {
+        width: 100%;
+        height: 80px;
+        @include flex-row-center;
+        gap: 42px;
+        background-color: #F6F6F6;
+        padding: 14px 20px 14px 20px;
+
+        span {
+            @include background-img-setup;
+            background-image: url("/public/assets/img/settings/game_settings_separator.png");
+            height: 56px;
+            width: 20px;
+            
+        }
+    }
+}

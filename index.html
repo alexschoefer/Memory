@@ -16,17 +16,128 @@
             <div>
                 <h1>It´s play time.</h1>
                 <p>Ready to play?</p>
-                <button id="start_btn"><span></span>Play<span></span></button>
+                <button id="play-btn"><span></span>Play<span></span></button>
             </div>
             <div class="start__img"></div>
         </section>
         <!-- Game setting page -->
-         <section id="game-settings" class="settings page">
-            <div>
-                <h2>Settings</h2>
-                <img src="" alt="">
+        <section id="settings-page" class="settings page">
+            <div class="settings__content">
+                <!-- Left setting container -->
+                <div class="settings__left-side-container">
+                    <div class="settings__header">
+                        <h2>Settings</h2>
+                        <img src="./public/assets/img/settings/line_underline_left.png" alt="line_underline_left">
+                    </div>
+
+                    <div class="settings__game-mode">
+                        <div class="settings__game-mode-header">
+                            <img src="./public/assets/img/settings/palette.png" alt="">
+                            <h3>Game themes</h3>
+                        </div>
+                        <ul>
+                            <li>
+                                <label>
+                                    <input type="radio" name="theme">
+                                    <span class="radio"></span>
+                                    Coding vibes theme
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" name="theme">
+                                    <span class="radio"></span>
+                                    Gaming theme
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" name="theme">
+                                    <span class="radio"></span>
+                                    DA Projects theme
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" name="theme">
+                                    <span class="radio"></span>
+                                    Foods theme
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="settings__game-mode">
+                        <div class="settings__game-mode-header">
+                            <img src="./public/assets/img/settings/player_choice.png" alt="">
+                            <h3>Choose player</h3>
+                        </div>
+                        <ul>
+                            <li>
+                                <label>
+                                    <input type="radio" name="theme">
+                                    <span class="radio"></span>
+                                    Blue
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" name="theme">
+                                    <span class="radio"></span>
+                                    Orange
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="settings__game-mode">
+                        <div class="settings__game-mode-header">
+                            <img src="./public/assets/img/settings/board_size.png" alt="">
+                            <h3>Board size</h3>
+                        </div>
+                        <ul>
+                            <li>
+                                <label>
+                                    <input type="radio" name="theme">
+                                    <span class="radio"></span>
+                                    16 cards
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" name="theme">
+                                    <span class="radio"></span>
+                                    24 cards
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" name="theme">
+                                    <span class="radio"></span>
+                                    36 cards
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Right setting container -->
+                <div class="settings__right-side-container">
+                    <div id="theme_visual" class="settings__theme-visual">PLATZHALTER</div>
+                    <div class="settings__theme_visual-selection_infoboard">
+                        <p>Game theme</p>
+                        <span></span>
+                        <p>Player</p>
+                        <span></span>
+                        <p>Board size</p>
+                        <button>
+                            <span></span>Start
+                        </button>
+                    </div>
+                </div>
             </div>
-         </section>
+
+
+        </section>
     </main>
 </body>
 
