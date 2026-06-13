@@ -1,4 +1,7 @@
 import "./styles/style.scss";
+import { init, setCurrentTheme, showCurrentPage } from "./ts/pages/start";
 
-document.body.dataset.theme = 'start';
-console.log(document.body.dataset.theme);
+// Start the app
+init();
+
+

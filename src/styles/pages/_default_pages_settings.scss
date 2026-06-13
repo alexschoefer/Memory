@@ -1,0 +1,12 @@
+@use '../abstract/mixin' as *;
+
+.page {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.page--active {
+    @include flex-center;
+    display: flex;
+}
