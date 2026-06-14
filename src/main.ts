@@ -12,3 +12,9 @@ document.getElementById("play-btn")?.addEventListener("click", () => {
 });
 
 initSettings();
+
+// Stard game
+document.getElementById("start-game-btn")?.addEventListener("click", () => {
+    showCurrentPage("game-page");
+    setCurrentTheme("game-theme");
+});

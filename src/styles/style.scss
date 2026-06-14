@@ -13,6 +13,7 @@
 @use "/src/styles/pages/startpage";
 @use "/src/styles/pages/default_pages_settings";
 @use "/src/styles/pages/settings";
+@use "/src/styles/pages/game";
 
 // Import the components styles
 @use "/src/styles/components/buttons";
@@ -20,3 +21,4 @@
 // Import the theme styles
 @use "/src/styles/themes/start_theme";
 @use "/src/styles/themes/settings_theme";
+@use "/src/styles/themes/game_theme";

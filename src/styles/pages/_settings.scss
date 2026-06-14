@@ -34,7 +34,7 @@
     }
 
     &__right-side-container {
-        width: 580px;
+        width: 600px;
         height: 100%;
         margin-top: 100px;
     }
@@ -102,7 +102,6 @@
         padding: 17px 7px 17px 7px;
         border-radius: 16px;
 
-
         &--gaming {
             background-image: url("/public/assets/img/settings/gaming_theme.png");
         }
@@ -126,14 +125,33 @@
         @include flex-row-center;
         gap: 42px;
         background-color: #F6F6F6;
-        padding: 14px 20px 14px 20px;
+        padding: 14px 18px 14px 18px;
+        align-items: center;
 
         span {
             @include background-img-setup;
             background-image: url("/public/assets/img/settings/game_settings_separator.png");
             height: 56px;
             width: 20px;
-            
+        }
+    }
+
+    button {
+        @include flex-center;
+        flex-direction: row;
+        font-family: $font-body;
+        font-size: $fs-sm;
+        font-weight: $fw-bold;
+        gap: 8px;
+        padding: 14px 20px 14px 20px;
+        width: 126px;
+        height: 55px;
+
+        span:first-child {
+            background-image: url("/public/assets/img/settings/smart_display.png");
+            @include background-img-setup;
+            height: 24px;
+            width: 24px;
         }
     }
 }
