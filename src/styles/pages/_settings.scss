@@ -31,13 +31,12 @@
     &__left-side-container {
         width: 1100px;
         height: 100%;
-        align-items: flex-start;
     }
 
-    &__right_side_container {
+    &__right-side-container {
         width: 580px;
         height: 100%;
-        align-items: flex-end;
+        margin-top: 100px;
     }
 
     input {
@@ -98,19 +97,22 @@
 
     &__theme_visual {
         @include background-img-setup;
-        height: 400px;
-        width: 400px;
+        height: 420px;
+        width: 460px;
+        padding: 17px 7px 17px 7px;
+        border-radius: 16px;
+
 
         &--gaming {
             background-image: url("/public/assets/img/settings/gaming_theme.png");
         }
 
         &--coding {
-            background-image: url("/public/assets/img/settings/it\ logos_theme.png");
+            background-image: url("/public/assets/img/settings/it_logos_theme.png");
         }
 
         &--projects {
-            background-image: url("/public/assets/img/settings/da\ projects_theme.png");
+            background-image: url("/public/assets/img/settings/da_projects_theme.png");
         }
 
         &--food {
