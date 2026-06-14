@@ -140,21 +140,23 @@
         <section id="game-page" class="game page">
             <header class="game-header">
                 <nav class="game-header__nav">
-                    <div class="game-header__nav-item">
-                        <div class="game-header__nav-scoreboard">
-                            <img src="./public/assets/img/game/game_piece_blue.png" alt="">
-                            <p>0</p>
+                    <div class="game-header__nav-scoreboard-container">
+                        <div class="game-header__nav-players">
+                            <img src="./public/assets/img/game/playerLabel_blue.png" alt="">
+                            <p class="game-header__playerBlue">Blue</p>
+                            <p class="game-header__playerBlue">0</p>
                         </div>
-                        <div class="game-header__nav-scoreboard">
-                            <img src="./public/assets/img/game/game_piece_orange.png" alt="">
-                            <p>0</p>
+                        <div class="game-header__nav-players">
+                            <img src="./public/assets/img/game/playerLabel_orange.png" alt="">
+                            <p class="game-header__playerOrange">Orange</p>
+                            <p class="game-header__playerOrange">0</p>
                         </div>
                     </div>
                     <div class="game-header__current-player">
                         <p>Current player:</p>
-                        <img src="" alt="">
+                        <img src="./public/assets/img/game/playerLabel_blue.png" alt="">
                     </div>
-                    <button>
+                    <button id="exit-game-btn" class="game-header__exit">
                         <span></span>
                         Exit game
                     </button>

@@ -18,3 +18,9 @@ document.getElementById("start-game-btn")?.addEventListener("click", () => {
     showCurrentPage("game-page");
     setCurrentTheme("game-theme");
 });
+
+// Exit game and return to settings
+document.getElementById("exit-game-btn")?.addEventListener("click", () => {
+    showCurrentPage("settings-page");
+    setCurrentTheme("settings-theme");    
+});
