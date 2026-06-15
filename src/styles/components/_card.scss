@@ -1,0 +1,33 @@
+@use '../abstract/mixin' as *;
+@use '../abstract/variables' as *;
+
+.card {
+    height: 120px;
+    aspect-ratio: 1/1;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+
+    &__inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: all 225ms ease-in;
+    }
+
+    &__face {
+            position: absolute;
+            inset: 0;
+            @include background-img-setup;
+    }
+
+    &__face--front {
+        transform: rotateY(180deg);
+    }
+
+    &__face--back {
+        transform: rotateY(0deg);
+    }
+}

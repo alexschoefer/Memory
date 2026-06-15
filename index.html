@@ -75,14 +75,14 @@
                         <ul>
                             <li>
                                 <label>
-                                    <input type="radio" name="player">
+                                    <input type="radio" name="player" value="blue">
                                     <span class="radio"></span>
                                     Blue
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio" name="player">
+                                    <input type="radio" name="player" value="orange">
                                     <span class="radio"></span>
                                     Orange
                                 </label>
@@ -98,21 +98,21 @@
                         <ul>
                             <li>
                                 <label>
-                                    <input type="radio" name="board-size">
+                                    <input type="radio" name="board-size" value="16">
                                     <span class="radio"></span>
                                     16 cards
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio" name="board-size">
+                                    <input type="radio" name="board-size" value="24">
                                     <span class="radio"></span>
                                     24 cards
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio" name="board-size">
+                                    <input type="radio" name="board-size" value="36">
                                     <span class="radio"></span>
                                     36 cards
                                 </label>
@@ -142,12 +142,12 @@
                 <nav class="game-header__nav">
                     <div class="game-header__nav-scoreboard-container">
                         <div class="game-header__nav-players">
-                            <img src="./public/assets/img/game/playerLabel_blue.png" alt="">
+                            <img src="./public/assets/img/game/playerLabel_blue.png" alt="playerLabel_blue">
                             <p class="game-header__playerBlue">Blue</p>
                             <p class="game-header__playerBlue">0</p>
                         </div>
                         <div class="game-header__nav-players">
-                            <img src="./public/assets/img/game/playerLabel_orange.png" alt="">
+                            <img src="./public/assets/img/game/playerLabel_orange.png" alt="playerLabel_orange">
                             <p class="game-header__playerOrange">Orange</p>
                             <p class="game-header__playerOrange">0</p>
                         </div>
@@ -162,6 +162,15 @@
                     </button>
                 </nav>
             </header>
+            <div class="game-cards"></div>
+            <template id="card-template">
+                <button class="card">
+                    <div class="card__inner">
+                        <div class="card__face card__face--front"></div>
+                        <div class="card__face card__face--back"></div>
+                    </div>
+                </button>
+            </template>
         </section>
     </main>
 </body>

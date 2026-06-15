@@ -1,9 +1,25 @@
-type Theme = "coding" | "gaming" | "projects" | "food";
+import { cardSets } from "../cardData";
 
-let selectedTheme: Theme = "coding";
+export type Theme = keyof typeof cardSets;
+type Player = "blue" | "orange";
+type BoardSize = 16 | 24 | 36;
+
+export type GameSettings = {
+    theme: Theme;
+    player: Player;
+    boardSize: BoardSize;
+};
+
+export const gameSettings: GameSettings = {
+    theme: "coding",
+    player: "blue",
+    boardSize: 16,
+};
 
 export function initSettings(): void {
     initThemeSelection();
+    initBoardSizeSelection();
+    initPlayerSelection();
     loadSavedTheme();
 }
 
@@ -28,14 +44,14 @@ function loadSavedTheme(): void {
     const savedTheme = localStorage.getItem("gameTheme");
 
     if (savedTheme && isTheme(savedTheme)) {
-        selectedTheme = savedTheme;
+        gameSettings.theme = savedTheme;
     }
 
-    setPreview(selectedTheme);
+    setPreview(gameSettings.theme);
 }
 
 function handleThemeChange(theme: Theme): void {
-    selectedTheme = theme;
+    gameSettings.theme = theme;
 
     setPreview(theme);
 
@@ -67,7 +83,7 @@ function initThemeSelection(): void {
 
         // Back to selected theme
         label.addEventListener("mouseleave", () => {
-            setPreview(selectedTheme);
+            setPreview(gameSettings.theme);
         });
 
         // Selection change
@@ -92,4 +108,30 @@ function isTheme(value: string): value is Theme {
         value === "projects" ||
         value === "food"
     );
+}
+
+function initBoardSizeSelection(): void {
+    const inputs = document.querySelectorAll<HTMLInputElement>(
+        'input[name="board-size"]'
+    );
+
+    inputs.forEach((input) => {
+        input.addEventListener("change", () => {
+            const value = Number(input.value) as BoardSize;
+
+            gameSettings.boardSize = value;
+        });
+    });
+}
+
+function initPlayerSelection(): void {
+    const inputs = document.querySelectorAll<HTMLInputElement>(
+        'input[name="player"]'
+    );
+
+    inputs.forEach((input) => {
+        input.addEventListener("change", () => {
+            gameSettings.player = input.value as Player;
+        });
+    });
 }

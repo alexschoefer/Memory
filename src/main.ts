@@ -1,6 +1,7 @@
 import "./styles/style.scss";
 import { init, setCurrentTheme, showCurrentPage } from "./ts/pages/start";
 import { initSettings } from "./ts/pages/settings";
+import { startGame } from "./ts/pages/game";
 
 // Start the app
 init();
@@ -17,10 +18,12 @@ initSettings();
 document.getElementById("start-game-btn")?.addEventListener("click", () => {
     showCurrentPage("game-page");
     setCurrentTheme("game-theme");
+    startGame(); 
 });
 
 // Exit game and return to settings
 document.getElementById("exit-game-btn")?.addEventListener("click", () => {
     showCurrentPage("settings-page");
-    setCurrentTheme("settings-theme");    
+    setCurrentTheme("settings-theme");
+   
 });
