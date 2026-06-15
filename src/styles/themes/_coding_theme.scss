@@ -1,0 +1,19 @@
+@use '../abstract/mixin' as *;
+@use '../abstract/variables' as *;
+
+body[data-theme="coding-theme"] {
+    --color-bg: #303131;
+
+    .game-header {
+
+        &__nav-scoreboard-container {
+            background: rgba(134, 233, 214, 0.2);
+        }
+    }
+
+    .matched {
+        border: 5px solid #4DD5BC;
+        box-shadow: 6px 6px 8px rgba(77, 213, 188, 0.3);
+    }
+
+}

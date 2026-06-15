@@ -3,24 +3,28 @@
 
 .card {
     height: 120px;
-    aspect-ratio: 1/1;
+    aspect-ratio: 1 / 1;
     background-color: transparent;
     border: none;
     cursor: pointer;
     padding: 0;
+
+    perspective: 1000px;
 
     &__inner {
         position: relative;
         width: 100%;
         height: 100%;
         transform-style: preserve-3d;
-        transition: all 225ms ease-in;
+        transition: transform 225ms ease-in;
     }
 
     &__face {
-            position: absolute;
-            inset: 0;
-            @include background-img-setup;
+        position: absolute;
+        inset: 0;
+        @include background-img-setup;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
     }
 
     &__face--front {
@@ -29,5 +33,9 @@
 
     &__face--back {
         transform: rotateY(0deg);
+    }
+
+    &.flipped .card__inner {
+        transform: rotateY(180deg);
     }
 }

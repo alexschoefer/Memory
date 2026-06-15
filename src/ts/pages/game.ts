@@ -1,15 +1,21 @@
 import { gameSettings, GameSettings, Theme } from "./settings";
 import { cardSets } from "../cardData";
 
+
+let firstCard: HTMLElement | null = null;
+let secondCard: HTMLElement | null = null;
+let lockBoard = false;
+let currentPlayer: GameSettings["player"] = gameSettings.player;
+
 export function startGame(): void {
     const deck = createDeck(gameSettings);
-
     renderBoard(deck, gameSettings.boardSize);
+    initCardEvents();
+    showCurrentPlayer(gameSettings);
 }
 
 function createDeck(settings: GameSettings): string[] {
     const allCards = cardSets[settings.theme];
-    console.log(allCards);
     
     const selected = allCards.card.slice(0, settings.boardSize / 2);
 
@@ -55,4 +61,68 @@ function createCard(imagePath: string, theme: Theme): HTMLElement {
     card.dataset.image = imagePath;
 
     return card;
+}
+
+function initCardEvents(): void {
+    const board = document.querySelector<HTMLElement>(".game-cards");
+    if (!board) return;
+    board.addEventListener("click", handleCardClick);
+}
+
+function handleCardClick(event: Event): void {
+    if (lockBoard) return;
+    const target = event.target as HTMLElement;
+    const card = target.closest(".card") as HTMLElement | null;
+
+    if(!card) return;
+
+    if(card.classList.contains("flipped")) return;
+
+    card.classList.add("flipped");
+
+        if (!firstCard) {
+            firstCard = card;
+            return;
+        }
+
+        secondCard = card;
+        checkForMatch();
+
+}
+
+function checkForMatch(): void {
+    if (!firstCard || !secondCard) return;
+
+    const isMatch = firstCard.dataset.image === secondCard.dataset.image;
+
+    if(isMatch) {
+        firstCard.classList.add("matched");
+        secondCard.classList.add("matched");
+        resetCards();
+        return;
+    }
+
+    lockBoard = true;
+
+    setTimeout(() => {
+        firstCard?.classList.remove("flipped");
+        secondCard?.classList.remove("flipped");
+        resetCards();
+    }, 1000);
+}
+
+function resetCards(): void {
+    [firstCard, secondCard] = [null, null];
+    lockBoard = false;
+}
+
+function resetGame(): void {
+    firstCard = null;
+    secondCard = null;
+    lockBoard = false;
+}
+
+function showCurrentPlayer(settings: GameSettings): void {
+    
+
 }

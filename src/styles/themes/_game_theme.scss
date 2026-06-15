@@ -1,3 +1,16 @@
-body[data-theme="game-theme"] {
+@use '../abstract/mixin' as *;
+@use '../abstract/variables' as *;
+
+body[data-theme="gaming-theme"] {
     --color-bg: #303131;
+
+.game-header {
+
+    &__nav-scoreboard-container {
+        background: rgba(134, 233, 214, 0.2);
+    }
+}
+
+
+
 }
