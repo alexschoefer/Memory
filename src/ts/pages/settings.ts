@@ -16,6 +16,11 @@ export const gameSettings: GameSettings = {
     boardSize: 16,
 };
 
+export const scores = {
+    blue: 0,
+    orange: 0,
+};
+
 export function initSettings(): void {
     initThemeSelection();
     initBoardSizeSelection();

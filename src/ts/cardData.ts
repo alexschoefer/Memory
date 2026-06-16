@@ -21,6 +21,12 @@ export const cardSets = {
             "public/assets/img/cards/coding/vue_card.png"
         ],
         back: "public/assets/img/cards/basic/basic_card_coding_front.png",
+        player: {
+            playerBlue:"./public/assets/img/game/playerLabel_blue.png",
+            playerOrange: "./public/assets/img/game/playerLabel_orange.png",
+            scoreBlue: "./public/assets/img/game/playerLabel_blue.png",
+            scoreOrange:"./public/assets/img/game/playerLabel_orange.png"
+        }
     },
 
 } as const;

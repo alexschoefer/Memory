@@ -1,4 +1,4 @@
-import { gameSettings, GameSettings, Theme } from "./settings";
+import { gameSettings, GameSettings, Theme, scores } from "./settings";
 import { cardSets } from "../cardData";
 
 
@@ -11,12 +11,13 @@ export function startGame(): void {
     const deck = createDeck(gameSettings);
     renderBoard(deck, gameSettings.boardSize);
     initCardEvents();
-    showCurrentPlayer(gameSettings);
+    showCurrentPlayer(gameSettings.theme, gameSettings.player);
+    showScoreBoard(gameSettings.theme)
 }
 
 function createDeck(settings: GameSettings): string[] {
     const allCards = cardSets[settings.theme];
-    
+
     const selected = allCards.card.slice(0, settings.boardSize / 2);
 
     return shuffle([...selected, ...selected]);
@@ -74,19 +75,19 @@ function handleCardClick(event: Event): void {
     const target = event.target as HTMLElement;
     const card = target.closest(".card") as HTMLElement | null;
 
-    if(!card) return;
+    if (!card) return;
 
-    if(card.classList.contains("flipped")) return;
+    if (card.classList.contains("flipped")) return;
 
     card.classList.add("flipped");
 
-        if (!firstCard) {
-            firstCard = card;
-            return;
-        }
+    if (!firstCard) {
+        firstCard = card;
+        return;
+    }
 
-        secondCard = card;
-        checkForMatch();
+    secondCard = card;
+    checkForMatch();
 
 }
 
@@ -95,12 +96,17 @@ function checkForMatch(): void {
 
     const isMatch = firstCard.dataset.image === secondCard.dataset.image;
 
-    if(isMatch) {
+    if (isMatch) {
         firstCard.classList.add("matched");
         secondCard.classList.add("matched");
+        updateScoreboard(gameSettings.player);
         resetCards();
         return;
     }
+
+    switchPlayer(gameSettings.theme, gameSettings.player);
+    showCurrentPlayer(gameSettings.theme, gameSettings.player);
+    console.log(`Current player: ${gameSettings.player}`);
 
     lockBoard = true;
 
@@ -122,7 +128,52 @@ function resetGame(): void {
     lockBoard = false;
 }
 
-function showCurrentPlayer(settings: GameSettings): void {
-    
+function showCurrentPlayer(theme: GameSettings["theme"], player: GameSettings["player"]): void {
+    if (!player) return;
+    if (!theme) return;
 
+    const playerImg = document.querySelector<HTMLImageElement>(".current-player-img");
+
+    if (!playerImg) return;
+
+    if (player === "blue") {
+        playerImg.src = cardSets[theme].player.playerBlue;
+    }
+
+    if (player === "orange") {
+        playerImg.src = cardSets[theme].player.playerOrange;
+    }
+
+}
+
+function switchPlayer(theme: GameSettings["theme"], player: GameSettings["player"]): void {
+    gameSettings.player =
+        gameSettings.player === "blue"
+            ? "orange"
+            : "blue";
+}
+
+function showScoreBoard(theme: GameSettings["theme"]) {
+    if (!theme) return;
+    const scoreBoardImgBlue = document.querySelector<HTMLImageElement>(".current-scoreBoardPlayerBlue-img");
+    const scoreBoardImgOrange = document.querySelector<HTMLImageElement>(".current-scoreBoardPlayerOrange-img");
+
+    if(!scoreBoardImgBlue || !scoreBoardImgOrange) return;
+
+    if(theme === 'coding') {
+        scoreBoardImgBlue.src = "./public/assets/img/game/playerLabel_blue.png";
+        scoreBoardImgOrange.src = "./public/assets/img/game/playerLabel_orange.png";
+    }
+}
+
+function updateScoreboard(player: GameSettings["player"]): void {
+    scores[player]++;
+
+    const scoreElement = document.getElementById(
+        `score-${player}`
+    );
+
+    if (!scoreElement) return;
+
+    scoreElement.textContent = String(scores[player]);
 }
