@@ -26,6 +26,11 @@ export const cardSets = {
             playerOrange: "./public/assets/img/game/playerLabel_orange.png",
             scoreBlue: "./public/assets/img/game/playerLabel_blue.png",
             scoreOrange:"./public/assets/img/game/playerLabel_orange.png"
+        },
+        winner: {
+            playerBlue:"public/assets/img/game-over/coding/winner_blue_chess_pawn.png",
+            playerOrange:"public/assets/img/game-over/coding/winner_orange_chess_pawn.png",
+            draw:"public/assets/img/game-over/coding/final_score_draw.png"
         }
     },
 
