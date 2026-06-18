@@ -1,4 +1,5 @@
 import { gameSettings, GameSettings, Theme, scores } from "./settings";
+import { isGameOver } from "./game-over";
 import { cardSets } from "../cardData";
 
 
@@ -6,6 +7,7 @@ let firstCard: HTMLElement | null = null;
 let secondCard: HTMLElement | null = null;
 let lockBoard = false;
 let currentPlayer: GameSettings["player"] = gameSettings.player;
+let matchedPairs = 0;
 
 export function startGame(): void {
     const deck = createDeck(gameSettings);
@@ -99,8 +101,11 @@ function checkForMatch(): void {
     if (isMatch) {
         firstCard.classList.add("matched");
         secondCard.classList.add("matched");
+        matchedPairs++;
         updateScoreboard(gameSettings.player);
         resetCards();
+        console.log(matchedPairs);
+        isGameOver(matchedPairs, gameSettings);
         return;
     }
 
@@ -132,7 +137,7 @@ function showCurrentPlayer(theme: GameSettings["theme"], player: GameSettings["p
     if (!player) return;
     if (!theme) return;
 
-    const playerImg = document.querySelector<HTMLImageElement>(".current-player-img");
+    const playerImg = document.querySelector<HTMLImageElement>(".game-header__current-player-img");
 
     if (!playerImg) return;
 
