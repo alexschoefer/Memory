@@ -182,10 +182,10 @@
             </div>
         </section>
         <!-- Score page -->
-         <section id="score" class="score">
+         <section id="score" class="score page">
             <h3>Game over</h3>
-            <div>
-                <p>Finale score</p>
+            <div class="score__final-score">
+                <p class="score__subtitle">Finale score</p>
                 <div>
                     <div class="game-header__nav-scoreboard-container">
                         <div class="game-header__nav-players">
@@ -204,10 +204,11 @@
          </section>
          <!-- Game-over page -->
           <section id="game_over" class="game-over">
-                <h3>The winner is</h3>
+                <img src="./public/assets/img/settings/confetti.png" alt="confetti">
+                <h3 class="game-over__winner">The winner is</h3>
                 <p><span></span> Player</p>
                 <div></div>
-                <button>Back to start</button>
+                <button id="go_back_btn">Back to start</button>
           </section>
     </main>
 </body>

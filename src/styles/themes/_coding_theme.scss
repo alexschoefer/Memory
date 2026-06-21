@@ -41,4 +41,27 @@ body[data-theme="coding-theme"] {
           }
     }
 
+    .score {
+        background-color: #303131;
+    
+        h3 {
+          color: #4DD5BC;
+          font-family: 'Orbitron';
+          font-size: 124px;
+          box-shadow: rgba(77, 213, 188, 0.5);
+        }
+    
+        &__subtitle {
+          color: white;
+          font-family: $font-content;
+          font-size: 26px;
+          font-weight: 400;
+
+        }
+      }
+
+      .game-over {
+        gap: 20px;
+      }
+
 }

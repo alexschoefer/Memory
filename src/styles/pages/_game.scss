@@ -89,7 +89,7 @@
 }
 
 .game-exit-overlay {
-    // display: none;
+    display: none;
     position: fixed;
     z-index: 20px;
     width: 550px;
@@ -122,6 +122,7 @@
         width: 190px;
         font: inherit;
         font-weight: $fw-bold;
+        cursor: pointer;
       }
 
       &__button_back {
@@ -130,6 +131,7 @@
         width: 210px;
         font: inherit;
         font-weight: $fw-bold;
+        cursor: pointer;
       }
 }
 

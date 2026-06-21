@@ -1,0 +1,14 @@
+@use '../abstract/mixin' as *;
+@use '../abstract/variables' as *;
+
+section {
+    max-width: 1440px;
+    height: 1024px;
+    @include flex-center;
+
+    img {
+        max-width: 1200px;
+        height: 350px;
+    }
+}
+
