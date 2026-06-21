@@ -16,4 +16,29 @@ body[data-theme="coding-theme"] {
         box-shadow: 6px 6px 8px rgba(77, 213, 188, 0.3);
     }
 
+    .game-exit-overlay {
+            background-color: #FFFFFF;
+    
+        & p {
+            font-family: $font-content;
+        }
+    
+        &__button_quit {
+            background-color: #FFFFFF;
+            font-family: $font-content;
+            font-size: 18px;
+            font-weight: 700px;
+            color: #4DD5BC;
+            border: 2px solid #4DD5BC;
+          }
+
+          &__button_back {
+            background-color: #66CFBC;
+            font-family: $font-content;
+            font-size: 18px;
+            font-weight: 700px;
+            color: #FFFFFF;
+          }
+    }
+
 }
