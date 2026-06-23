@@ -48,7 +48,7 @@ body[data-theme="coding-theme"] {
       color: #4DD5BC;
       font-family: 'Orbitron';
       font-size: 124px;
-      box-shadow: rgba(77, 213, 188, 0.5);
+      box-shadow: -7px 0px 8px 0px rgba(77, 213, 188, 0.5);
     }
 
     &__subtitle {
@@ -63,7 +63,6 @@ body[data-theme="coding-theme"] {
   .game-over {
     gap: 20px;
     max-width: 1440px;
-    height: 1024px;
     @include flex-center;
 
 
@@ -101,6 +100,14 @@ body[data-theme="coding-theme"] {
       font-weight: 700;
       font-size: 60px;
       color: rgba(43, 177, 255, 1);
+    }
+
+    &__winner_draw {
+      font-family: $font-content;
+      @include no-block-margins;
+      font-weight: 700;
+      font-size: 60px;
+      color: rgba(77, 213, 188, 1);
     }
 
     &__winner_img {
