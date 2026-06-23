@@ -191,24 +191,26 @@
                         <div class="game-header__nav-players">
                             <img class="current-scoreBoardPlayerBlue-img" src="./public/assets/img/game/playerLabel_blue.png" alt="playerLabel_blue">
                             <p class="game-header__playerBlue">Blue</p>
-                            <p id="score-blue" class="game-header__playerBlue">0</p>
+                            <p id="final-score-blue" class="game-header__playerBlue">0</p>
                         </div>
                         <div class="game-header__nav-players">
                             <img class="current-scoreBoardPlayerOrange-img"  src="./public/assets/img/game/playerLabel_orange.png" alt="playerLabel_orange">
                             <p class="game-header__playerOrange">Orange</p>
-                            <p id="score-orange" class="game-header__playerOrange">0</p>
+                            <p id="final-score-orange" class="game-header__playerOrange">0</p>
                         </div>
                     </div>
                 </div>
             </div>
          </section>
          <!-- Game-over page -->
-          <section id="game_over" class="game-over">
-                <img src="./public/assets/img/settings/confetti.png" alt="confetti">
-                <h3 class="game-over__winner">The winner is</h3>
-                <p><span></span> Player</p>
-                <div></div>
-                <button id="go_back_btn">Back to start</button>
+          <section id="game_over" class="game-over page">
+                <img class="game-over__confetti"src="./public/assets/img/settings/confetti.png" alt="confetti">
+                <div class="game-over__endscreen">
+                    <h3 class="game-over__winner">The winner is</h3>
+                    <p><span></span> Player</p>
+                    <div class="game-over__winner_img"></div>
+                    <button id="go_back_btn">Back to start</button>
+                </div>
           </section>
     </main>
 </body>

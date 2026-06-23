@@ -1,5 +1,5 @@
 import { gameSettings, GameSettings, Theme, scores } from "./settings";
-import { isGameOver } from "./game-over";
+import { isGameOver, getWinner, showGameOverScreen } from "./game-over";
 import { cardSets } from "../cardData";
 
 
@@ -101,17 +101,23 @@ function checkForMatch(): void {
     if (isMatch) {
         firstCard.classList.add("matched");
         secondCard.classList.add("matched");
+
         matchedPairs++;
+
         updateScoreboard(gameSettings.player);
+
         resetCards();
-        console.log(matchedPairs);
-        isGameOver(matchedPairs, gameSettings);
+
+        if (isGameOver(matchedPairs, gameSettings)) {
+            endGame();
+            return;
+        }
+
         return;
     }
 
     switchPlayer(gameSettings.theme, gameSettings.player);
     showCurrentPlayer(gameSettings.theme, gameSettings.player);
-    console.log(`Current player: ${gameSettings.player}`);
 
     lockBoard = true;
 
@@ -127,10 +133,13 @@ function resetCards(): void {
     lockBoard = false;
 }
 
-function resetGame(): void {
+export function resetGame(): void {
     firstCard = null;
     secondCard = null;
     lockBoard = false;
+    matchedPairs = 0;
+    scores.blue = 0;
+    scores.orange = 0;
 }
 
 function showCurrentPlayer(theme: GameSettings["theme"], player: GameSettings["player"]): void {
@@ -163,9 +172,9 @@ function showScoreBoard(theme: GameSettings["theme"]) {
     const scoreBoardImgBlue = document.querySelector<HTMLImageElement>(".current-scoreBoardPlayerBlue-img");
     const scoreBoardImgOrange = document.querySelector<HTMLImageElement>(".current-scoreBoardPlayerOrange-img");
 
-    if(!scoreBoardImgBlue || !scoreBoardImgOrange) return;
+    if (!scoreBoardImgBlue || !scoreBoardImgOrange) return;
 
-    if(theme === 'coding') {
+    if (theme === 'coding') {
         scoreBoardImgBlue.src = "./public/assets/img/game/playerLabel_blue.png";
         scoreBoardImgOrange.src = "./public/assets/img/game/playerLabel_orange.png";
     }
@@ -181,4 +190,35 @@ function updateScoreboard(player: GameSettings["player"]): void {
     if (!scoreElement) return;
 
     scoreElement.textContent = String(scores[player]);
+}
+
+function endGame(): void {
+    showFinalScore();
+
+    const winner = getWinner(scores);
+
+    setTimeout(() => {
+        showGameOverScreen(winner);
+    }, 3000);
+}
+
+function showFinalScore(): void {
+    document
+        .querySelectorAll(".page")
+        .forEach(page => page.classList.remove("page--active"));
+
+    document
+        .getElementById("score")
+        ?.classList.add("page--active");
+
+    const blueScore = document.getElementById("final-score-blue");
+    const orangeScore = document.getElementById("final-score-orange");
+
+    if (blueScore) {
+        blueScore.textContent = String(scores.blue);
+    }
+
+    if (orangeScore) {
+        orangeScore.textContent = String(scores.orange);
+    }
 }
