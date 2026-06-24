@@ -21,22 +21,52 @@ document.getElementById("start-game-btn")?.addEventListener("click", () => {
     startGame();
 });
 
-// Exit game and return to settings
-document.getElementById("exit-game-btn")?.addEventListener("click", () => {
-    showCurrentPage("settings-page");
-    setCurrentTheme("settings-theme");
-
-});
 
 // Game-over and return to settings
 document.getElementById("go_back_btn")?.addEventListener("click", () => {
-    showCurrentPage("settings-page");
-    setCurrentTheme("settings-theme");
-    resetGame();
     document.querySelectorAll(".page").forEach(page => page.classList.remove("page--active"));
     const page = document.getElementById("settings-page");
     if (!page) return;
     page.classList.add("page--active");
+    showCurrentPage("settings-page");
+    setCurrentTheme("settings-theme");
+    resetGame();
+
 });
+
+document.getElementById("exit-game-btn")?.addEventListener("click", showExitOverlay);
+
+function showExitOverlay(): void {
+    const overlay = document.getElementById("game-exit-overlay");
+
+    if (!overlay) return;
+
+    overlay.classList.add("game-exit-overlay__container--active");
+    document.body.classList.add("no-scroll");
+}
+
+document.getElementById("back_game")?.addEventListener("click", closeExitOverlay);
+
+function closeExitOverlay(): void {
+    const overlay = document.getElementById("game-exit-overlay");
+
+    if (!overlay) return;
+
+    overlay.classList.remove("game-exit-overlay__container--active");
+    document.body.classList.remove("no-scroll");
+}
+
+document.getElementById("quit_game")?.addEventListener("click", goBackToSettings);
+
+function goBackToSettings() {
+    showCurrentPage("settings-page");
+    setCurrentTheme("settings-theme");
+    const overlay = document.getElementById("game-exit-overlay");
+
+    if (!overlay) return;
+
+    overlay.classList.remove("game-exit-overlay__container--active");
+    document.body.classList.remove("no-scroll");
+}
 
 

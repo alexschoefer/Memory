@@ -6,3 +6,7 @@ main {
     height: 100vh;
     @include flex-center;
 }
+
+.no-scroll {
+    overflow: hidden;
+}

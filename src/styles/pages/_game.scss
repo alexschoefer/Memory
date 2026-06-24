@@ -89,12 +89,13 @@
 }
 
 .game-exit-overlay {
-    display: none;
     position: fixed;
     z-index: 20px;
     width: 550px;
     height: 240px;
     border-radius: 20px;
+    inset: 0;
+    z-index: 1000;
 
     & p {
         font-weight: $fw-bold;
@@ -103,17 +104,25 @@
     }
 
     &__container {
+        display: none;
+    }
+
+    &__container--active {
+        display: flex;
         position: fixed;
-        width: 450px;
-        height: 190px;
+        width: 550px;
+        height: 250px;
         top: 50%;
         right: 50%;
         transform: translate(50%, -50%);
+        border-radius: 20px;
+        @include flex-center;
     }
 
     &__buttons {
         @include flex-space-btw;
         gap: 8px;
+        padding: 20px;
     }
 
     &__button_quit {

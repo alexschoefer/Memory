@@ -17,7 +17,10 @@ body[data-theme="coding-theme"] {
   }
 
   .game-exit-overlay {
-    background-color: #FFFFFF;
+
+    &__container {
+      background-color: #FFFFFF;
+    }
 
     & p {
       font-family: $font-content;
