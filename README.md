@@ -12,6 +12,10 @@ Memory is a classic card-matching game where players reveal two cards at a time 
 
 The game features multiple themes, dedicated game screens, customizable settings, score tracking, and a game-over summary screen.
 
+The game is currently optimized for desktop use.
+
+Responsive layouts for tablets and mobile devices are planned for future releases.
+
 ---
 
 # ✨ Features
@@ -250,18 +254,7 @@ Page-specific styles:
 
 ## Themes
 
-Theme-based customizations for different sections and game modes.
-
----
-
-# 📱 Responsive Design
-
-The application is fully responsive and optimized for:
-
-- Desktop
-- Laptop
-- Tablet
-- Mobile Devices
+Theme-based (Coding, Gaming, DA Projects, Food) customizations for different sections and game modes.
 
 ---
 
