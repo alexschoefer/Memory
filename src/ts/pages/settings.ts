@@ -26,6 +26,7 @@ export function initSettings(): void {
     initBoardSizeSelection();
     initPlayerSelection();
     loadSavedTheme();
+    updateSettingsPreview();
 }
 
 /* ---------------------------
@@ -59,7 +60,7 @@ function handleThemeChange(theme: Theme): void {
     gameSettings.theme = theme;
 
     setPreview(theme);
-
+    updateSettingsPreview();
     localStorage.setItem("gameTheme", theme);
 }
 
@@ -123,8 +124,8 @@ function initBoardSizeSelection(): void {
     inputs.forEach((input) => {
         input.addEventListener("change", () => {
             const value = Number(input.value) as BoardSize;
-
             gameSettings.boardSize = value;
+            updateSettingsPreview();
         });
     });
 }
@@ -137,6 +138,19 @@ function initPlayerSelection(): void {
     inputs.forEach((input) => {
         input.addEventListener("change", () => {
             gameSettings.player = input.value as Player;
+            updateSettingsPreview();
         });
     });
+}
+
+function updateSettingsPreview(): void {
+    const theme = document.getElementById("selected-theme");
+    const player = document.getElementById("selected-player");
+    const boardSize = document.getElementById("selected-board-size");
+
+    if (!theme || !player || !boardSize) return;
+
+    theme.textContent = gameSettings.theme;
+    player.textContent = gameSettings.player;
+    boardSize.textContent = `${gameSettings.boardSize} cards`;
 }
