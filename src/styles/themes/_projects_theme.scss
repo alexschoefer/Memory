@@ -1,0 +1,63 @@
+@use '../abstract/mixin' as *;
+@use '../abstract/variables' as *;
+
+body[data-theme="projects-theme"] {
+  --color-bg: #FFFFFF;
+
+  .game-header {
+    border-radius: 10px;
+    background-color: rgba(240, 243, 244, 1);
+
+    &__nav-scoreboard-container {
+      justify-content: center;
+      align-items: center;
+      padding: 17px 20px 17px 20px;
+      height: 55px;
+    }
+
+    &__exit {
+      padding: 12px 20px 12px 20px;
+      border-radius: 10px;
+      background-color: rgba(191, 229, 242, 1)
+    }
+
+    .matched {
+      border: 3px solid #ED1B76;
+      box-shadow: 6px 6px 8px rgba(237, 27, 118, 0.3)
+    }
+  
+    &__current-player {
+      @include flex-row-space-btw;
+      gap: 16px;
+      align-items: center;
+  
+      &-img {
+        width: 29px;
+        height: 24px;
+      }
+  
+      p {
+        font-family: $font-content;
+        font-size: 24px;
+        font-weight: 700;
+        color: #1E7594;
+        width: 188px;
+      }
+    }
+
+    &__exit {
+      color: #1E7594;
+      font-size: 20px;
+
+
+      span {
+          @include background-img-setup;
+          background-image: url("/public/assets/img/game/projects_exit_button.png");
+          height: 30px;
+          width: 30px;
+      }
+  }
+  }
+
+
+}

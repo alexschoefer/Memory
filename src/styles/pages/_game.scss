@@ -3,29 +3,33 @@
 
 .game-header {
     @include flex-row-space-btw;
-    height: 62px;
+    height: 100px;
     position: fixed;
     width: 100%;
-    max-width: 1440px;
+    max-width: 1280px;
     top: 20px;
+
 
     &__nav {
         @include flex-row-space-btw;
-        width: 100%;
+        align-items: center;
+        gap: 200px;
     }
 
     &__nav-scoreboard-container {
         @include flex-row-space-btw;
         width: 100%;
-        max-width: 290px;
+        max-width: 375px;
         gap: 20px;
-        padding: 17px 20px 17px 20px;
+        height: 60px;
     }
 
     &__nav-players {
         @include flex-row-space-btw;
         align-items: center;
         gap: 16px;
+        height: 30px;
+        padding: 17px 20px 17px 20px;
 
         img {
             width: 100%;
@@ -49,7 +53,7 @@
     }
 
     &__current-player {
-        @include flex-row-space-btw;
+        @include flex-center;
         gap: 16px;
         align-items: center;
 
@@ -63,7 +67,7 @@
             font-size: 26px;
             font-weight: $fw-light;
             color: $color-wh;
-            width: 188px;
+            width: 100%;
         }
     }
 
@@ -75,9 +79,10 @@
         font-family: $font-content;
         background: rgba(134, 233, 214, 0.2);
         color: $color-wh;
-        font-size: 24px;
+        font-size: 20px;
         font-weight: $fw-bold;
-
+        height: 55px;
+        padding: 12px 20px 12px 20px;
 
         span {
             @include background-img-setup;
@@ -110,7 +115,7 @@
     &__container--active {
         display: flex;
         position: fixed;
-        width: 550px;
+        width: 650px;
         height: 250px;
         top: 50%;
         right: 50%;
@@ -121,7 +126,7 @@
 
     &__buttons {
         @include flex-space-btw;
-        gap: 8px;
+        gap: 20px;
         padding: 20px;
     }
 

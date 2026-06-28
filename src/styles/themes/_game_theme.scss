@@ -5,9 +5,23 @@ body[data-theme="gaming-theme"] {
   --color-bg: #294F60;
 
   .game-header {
+    border-radius: 10px;
+    background-color: rgba(253, 150, 201, 0.2);
 
     &__nav-scoreboard-container {
-      background: rgba(253, 150, 201, 0.2);
+      // background: rgba(255, 255, 255, 1);
+      justify-content: center;
+      align-items: center;
+      padding: 17px 20px 17px 20px;
+      height: 55px;
+      // width: 185px;
+    }
+
+    &__exit {
+      padding: 12px 20px 12px 20px;
+      border: 2px solid rgba(231, 28, 79, 1);
+      border-radius: 10px;
+      background-color: rgba(41, 79, 96, 1);
     }
   }
 

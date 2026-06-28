@@ -1,0 +1,119 @@
+@use '../abstract/mixin' as *;
+@use '../abstract/variables' as *;
+
+body[data-theme="food-theme"] {
+    --color-bg: #FFFFFF;
+
+    .game-header {
+        border-radius: 10px;
+        background-color: rgba(240, 229, 217, 1);
+
+        &__nav-scoreboard-container {
+            justify-content: center;
+            align-items: center;
+            padding: 17px 20px 17px 20px;
+            height: 55px;
+        }
+
+        &__exit {
+            padding: 12px 20px 12px 20px;
+            border-radius: 10px;
+            background-color: rgba(191, 229, 242, 1);
+            font-family: 'Delius Unicase';
+            color: #F3832D;
+            font-size: 20px;
+            background-color: #FFF9F2;
+            border: 3px solid #F3832D;
+
+            span {
+                @include background-img-setup;
+                background-image: url("/public/assets/img/game/food_exit_button.png");
+                height: 22px;
+                width: 22px;
+            }
+
+            &:hover {
+                background-color: #F3832D;
+                transform: none;
+                color: #FFFFFF;
+
+                span {
+                    @include background-img-setup;
+                    background-image: url("/public/assets/img/game/exit_button.png");
+                    height: 22px;
+                    width: 22px;
+                    transform: none;
+                }
+            }
+        }
+
+        &__current-player {
+            @include flex-row-space-btw;
+            gap: 16px;
+            align-items: center;
+
+            &-img {
+                width: 29px;
+                height: 24px;
+            }
+
+            p {
+                font-family: 'Klee One';
+                font-size: 24px;
+                font-weight: 700;
+                color: #A45212;
+                width: 188px;
+            }
+        }
+
+        &__playerOrange {
+            font-family: 'Delius Unicase';
+        }
+
+        &__playerBlue {
+            font-family: 'Delius Unicase';
+        }
+    }
+
+    .matched {
+        border: 4px solid #F3832D;
+        box-shadow: 6px 6px 8px rgba(237, 27, 118, 0.3)
+    }
+
+    .game-exit-overlay {
+
+        &__container {
+            background-color: #F6F6F6;
+        }
+
+        & p {
+            font-family: 'Klee One';
+        }
+
+        &__buttons {
+            width: 360px;
+        }
+
+        &__button_quit {
+            background-color: #FFF9F2;
+            font-family: 'Delius Unicase';
+            font-size: 16px;
+            font-weight: 700;
+            color: #F3832D;
+            border: 3px solid #F3832D;
+            width: 100%;
+        }
+
+        &__button_back {
+            background-color: #FFAB3E;
+            font-family: 'Delius Unicase';
+            font-size: 16px;
+            font-weight: 700;
+            color: #FFFFFF;
+            border: 3px solid #F3832D;
+            width: 100%;
+        }
+    }
+
+
+}

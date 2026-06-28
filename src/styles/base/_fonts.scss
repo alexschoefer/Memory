@@ -1,75 +1,115 @@
 /* Start-page + h1 */
 @font-face {
-    font-display: swap;
-    font-family: 'Almarai';
-    font-style: normal;
-    font-weight: 400;
-    src: url('/public/fonts/almarai-v19-latin-regular.woff2');
+  font-display: swap;
+  font-family: 'Almarai';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/public/fonts/almarai-v19-latin-regular.woff2');
 }
 
 /* red-rose-regular - latin */
 @font-face {
-    font-display: swap;
-    font-family: 'Red Rose';
-    font-style: normal;
-    font-weight: 400;
-    src: url('/public/fonts/red-rose-v25-latin-regular.woff2');
+  font-display: swap;
+  font-family: 'Red Rose';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/public/fonts/red-rose-v25-latin-regular.woff2');
 }
 
 /* red-rose-700 - latin */
 @font-face {
-    font-display: swap;
-    font-family: 'Red Rose';
-    font-style: normal;
-    font-weight: 700;
-    src: url('/public/fonts/red-rose-v25-latin-700.woff2');
+  font-display: swap;
+  font-family: 'Red Rose';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/public/fonts/red-rose-v25-latin-700.woff2');
 }
 
 /* orbitron-regular - latin */
 @font-face {
-    font-display: swap; 
-    font-family: 'Orbitron';
-    font-style: normal;
-    font-weight: 400;
-    src: url('../fonts/orbitron-v35-latin-regular.woff2') format('woff2'); 
-  }
-  /* orbitron-500 - latin */
-  @font-face {
-    font-display: swap; 
-    font-family: 'Orbitron';
-    font-style: normal;
-    font-weight: 500;
-    src: url('../fonts/orbitron-v35-latin-500.woff2') format('woff2'); 
-  }
-  /* orbitron-600 - latin */
-  @font-face {
-    font-display: swap; 
-    font-family: 'Orbitron';
-    font-style: normal;
-    font-weight: 600;
-    src: url('../fonts/orbitron-v35-latin-600.woff2') format('woff2'); 
-  }
-  /* orbitron-700 - latin */
-  @font-face {
-    font-display: swap; 
-    font-family: 'Orbitron';
-    font-style: normal;
-    font-weight: 700;
-    src: url('../fonts/orbitron-v35-latin-700.woff2') format('woff2'); 
-  }
-  /* orbitron-800 - latin */
-  @font-face {
-    font-display: swap; 
-    font-family: 'Orbitron';
-    font-style: normal;
-    font-weight: 800;
-    src: url('../fonts/orbitron-v35-latin-800.woff2') format('woff2'); 
-  }
-  /* orbitron-900 - latin */
-  @font-face {
-    font-display: swap; 
-    font-family: 'Orbitron';
-    font-style: normal;
-    font-weight: 900;
-    src: url('../fonts/orbitron-v35-latin-900.woff2') format('woff2'); 
-  }
+  font-display: swap;
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/public/fonts/orbitron-v35-latin-regular.woff2');
+}
+
+/* orbitron-500 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/public/fonts/orbitron-v35-latin-500.woff2');
+}
+
+/* orbitron-600 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/public/fonts/orbitron-v35-latin-600.woff2');
+}
+
+/* orbitron-700 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/public/fonts/orbitron-v35-latin-700.woff2');
+}
+
+/* orbitron-800 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 800;
+  src: url('/public/fonts/orbitron-v35-latin-800.woff2');
+}
+
+/* orbitron-900 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 900;
+  src: url('/public/fonts/orbitron-v35-latin-900.woff2');
+}
+
+/* delius-unicase-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Delius Unicase';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/public/fonts/delius-unicase-v30-latin-regular.woff2');
+}
+
+/* delius-unicase-700 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Delius Unicase';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/public/fonts/delius-unicase-v30-latin-700.woff2');
+}
+
+/* klee-one-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Klee One';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/public/fonts/klee-one-v13-latin-regular.woff2');
+}
+/* klee-one-600 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Klee One';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/public/fonts/klee-one-v13-latin-600.woff2');
+}

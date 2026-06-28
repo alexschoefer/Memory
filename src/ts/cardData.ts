@@ -88,7 +88,7 @@ export const cardSets = {
             "public/assets/img/cards/foods/toffee_pudding.png",
             "public/assets/img/cards/foods/wrap.png"
         ],
-        back: "public/assets/img/cards/basic/basic_card_foods_front.png",
+        back: "public/assets/img/cards/basic/basic_card_food_front.png",
         player: {
             playerBlue:"./public/assets/img/game/playerLabel_blue.png",
             playerOrange: "./public/assets/img/game/playerLabel_orange.png",
