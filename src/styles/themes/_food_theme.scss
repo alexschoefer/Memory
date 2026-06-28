@@ -49,12 +49,13 @@ body[data-theme="food-theme"] {
 
         &__current-player {
             @include flex-row-space-btw;
-            gap: 16px;
+            gap: 4px;
             align-items: center;
 
             &-img {
-                width: 29px;
-                height: 24px;
+                width: 32px;
+                height: 32px;
+                padding: 2px;
             }
 
             p {
@@ -63,6 +64,14 @@ body[data-theme="food-theme"] {
                 font-weight: 700;
                 color: #A45212;
                 width: 188px;
+            }
+
+            .activePlayerBlue {
+                background-color: #097FC5;
+            }
+
+            .activePlayerOrange {
+                background-color: #EA6900;
             }
         }
 
@@ -112,6 +121,10 @@ body[data-theme="food-theme"] {
             color: #FFFFFF;
             border: 3px solid #F3832D;
             width: 100%;
+
+            &:hover {
+                background-color: #F3832D;
+            }
         }
     }
 

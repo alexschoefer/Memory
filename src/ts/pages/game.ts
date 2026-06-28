@@ -143,28 +143,28 @@ export function resetGame(): void {
 }
 
 function showCurrentPlayer(theme: GameSettings["theme"], player: GameSettings["player"]): void {
-    if (!player) return;
-    if (!theme) return;
-
     const playerImg = document.querySelector<HTMLImageElement>(".game-header__current-player-img");
 
     if (!playerImg) return;
 
-    if (player === "blue") {
-        playerImg.src = cardSets[theme].player.playerBlue;
-    }
+    playerImg.src =
+        player === "blue"
+            ? cardSets[theme].player.playerBlue
+            : cardSets[theme].player.playerOrange;
 
-    if (player === "orange") {
-        playerImg.src = cardSets[theme].player.playerOrange;
-    }
+    playerImg.classList.remove("activePlayerBlue", "activePlayerOrange");
 
+    playerImg.classList.add(player === "blue"
+        ? "activePlayerBlue"
+        : "activePlayerOrange"
+    );
 }
 
 function switchPlayer(theme: GameSettings["theme"], player: GameSettings["player"]): void {
     gameSettings.player =
-        gameSettings.player === "blue"
-            ? "orange"
-            : "blue";
+        gameSettings.player === "blue" ? "orange" : "blue";
+
+    showCurrentPlayer(theme, gameSettings.player);
 }
 
 function showScoreBoard(theme: GameSettings["theme"]) {
@@ -177,6 +177,11 @@ function showScoreBoard(theme: GameSettings["theme"]) {
     if (theme === 'coding') {
         scoreBoardImgBlue.src = "./public/assets/img/game/playerLabel_blue.png";
         scoreBoardImgOrange.src = "./public/assets/img/game/playerLabel_orange.png";
+    }
+
+    if (theme === 'gaming' || 'food' || 'projects') {
+        scoreBoardImgBlue.src = "./public/assets/img/game/chess_blue_pawn.png";
+        scoreBoardImgOrange.src = "./public/assets/img/game/chess_orange_pawn.png";
     }
 }
 
