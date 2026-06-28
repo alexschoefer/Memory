@@ -1,6 +1,6 @@
 import "./styles/style.scss";
 import { init, setCurrentTheme, showCurrentPage } from "./ts/pages/start";
-import { initSettings } from "./ts/pages/settings";
+import { gameSettings, initSettings } from "./ts/pages/settings";
 import { startGame, resetGame } from "./ts/pages/game";
 
 // Start the app
@@ -17,10 +17,9 @@ initSettings();
 // Start game
 document.getElementById("start-game-btn")?.addEventListener("click", () => {
     showCurrentPage("game-page");
-    setCurrentTheme("coding-theme");
+    setCurrentTheme(`${gameSettings.theme}-theme`);
     startGame();
 });
-
 
 // Game-over and return to settings
 document.getElementById("go_back_btn")?.addEventListener("click", () => {

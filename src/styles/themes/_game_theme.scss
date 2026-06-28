@@ -2,14 +2,149 @@
 @use '../abstract/variables' as *;
 
 body[data-theme="gaming-theme"] {
-    --color-bg: #303131;
+  --color-bg: #294F60;
 
-.game-header {
+  .game-header {
 
     &__nav-scoreboard-container {
-        background: rgba(134, 233, 214, 0.2);
+      background: rgba(253, 150, 201, 0.2);
     }
-}
+  }
+
+  .matched {
+    border: 3px solid #ED1B76;
+    box-shadow: 6px 6px 8px rgba(237, 27, 118, 0.3)
+  }
+
+  .game-exit-overlay {
+
+    &__container {
+      background-color: #FFFFFF;
+    }
+
+    & p {
+      font-family: $font-content;
+    }
+
+    &__button_quit {
+      background-color: #FFFFFF;
+      font-family: $font-content;
+      font-size: 18px;
+      font-weight: 700px;
+      color: #4DD5BC;
+      border: 2px solid #4DD5BC;
+    }
+
+    &__button_back {
+      background-color: #66CFBC;
+      font-family: $font-content;
+      font-size: 18px;
+      font-weight: 700px;
+      color: #FFFFFF;
+    }
+  }
+
+  .score {
+    background-color: #303131;
+
+    h3 {
+      color: #4DD5BC;
+      font-family: 'Orbitron';
+      font-size: 124px;
+      box-shadow: -7px 0px 8px 0px rgba(77, 213, 188, 0.5);
+    }
+
+    &__subtitle {
+      color: white;
+      font-family: $font-content;
+      font-size: 26px;
+      font-weight: 400;
+
+    }
+  }
+
+  .game-over {
+    gap: 20px;
+    max-width: 1440px;
+    @include flex-center;
+
+
+    &__confetti {
+      max-width: 1200px;
+      height: 350px;
+    }
+
+    &__endscreen {
+      width: 430px;
+      height: 580px;
+      gap: 20px;
+      @include flex-center;
+    }
+
+    &__winner {
+      font-family: $font-content;
+      @include no-block-margins;
+      font-weight: 400;
+      font-size: 40px;
+      color: rgba(255, 255, 255, 1);
+    }
+
+    &__winner_orange {
+      font-family: $font-content;
+      @include no-block-margins;
+      font-weight: 700;
+      font-size: 60px;
+      color: rgba(245, 142, 57, 1);
+    }
+
+    &__winner_blue {
+      font-family: $font-content;
+      @include no-block-margins;
+      font-weight: 700;
+      font-size: 60px;
+      color: rgba(43, 177, 255, 1);
+    }
+
+    &__winner_draw {
+      font-family: $font-content;
+      @include no-block-margins;
+      font-weight: 700;
+      font-size: 60px;
+      color: rgba(77, 213, 188, 1);
+    }
+
+    &__winner_img {
+      @include background-img-setup;
+      height: 300px;
+      width: 250px;
+    }
+
+    .winner-blue {
+      background-image: url(/public/assets/img/game-over/coding/winner_blue_chess_pawn.png);
+    }
+
+    .winner-orange {
+      background-image: url(/public/assets/img/game-over/coding/winner_orange_chess_pawn.png);
+    }
+
+    .winner-draw {
+      background-image: url(/public/assets/img/game-over/coding/final_score_draw.png);
+    }
+
+    button {
+      width: 250px;
+      height: 60px;
+      font-family: $font-content;
+      font-weight: 400;
+      font-size: 24px;
+      color: rgba(255, 255, 255, 1);
+      background-color: rgba(134, 233, 214, 0.2);
+      border: 1px solid rgba(77, 213, 188, 1);
+      padding: 16px 24px 16px 24px;
+      @include flex-center;
+    }
+
+  }
 
 
 
