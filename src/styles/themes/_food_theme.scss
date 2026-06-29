@@ -128,5 +128,154 @@ body[data-theme="food-theme"] {
         }
     }
 
+    .score {
+        height: 100vh;
+        background-color: #F3832D;
+
+        h3 {
+            color: #FFFFFF;
+            font-family: 'Klee One';
+            font-size: 130px;
+            font-weight: 600;
+        }
+
+
+        &__subtitle {
+            color: white;
+            font-family: 'Klee One';
+            font-size: 42px;
+            font-weight: 600;
+        }
+
+        &__final-score {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__final-scoreboard-container {
+            background-color: #FFFFFF;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 350px;
+            height: 80px;
+            gap: 40px;
+        }
+
+        &__final-scoreBoardPlayerOrange-img, &__final-scoreBoardPlayerBlue-img {
+            width: 24px;
+            height: 30px;
+        }
+
+        &__final-players {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        &__final-playerOrange {
+            font-size: 28px;
+            font-weight: 700;
+            font-family: 'Red Rose';
+            color: #EA6900;
+        }
+
+        &__final-playerBlue {
+            font-size: 28px;
+            font-weight: 700;
+            font-family: 'Red Rose';
+            color: #097FC5;
+        }
+    }
+
+    .game-over {
+        gap: 20px;
+        max-width: 1440px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+
+        &__confetti {
+            max-width: 1200px;
+            height: 350px;
+        }
+
+        &__endscreen {
+            width: 430px;
+            height: 580px;
+            gap: 20px;
+            @include flex-center;
+        }
+
+        &__winner {
+            font-family: 'Klee One';
+            @include no-block-margins;
+            font-weight: 400;
+            font-size: 40px;
+            color: #A45212;
+        }
+
+        &__winner_orange {
+            font-family: 'Klee One';
+            @include no-block-margins;
+            font-weight: 700;
+            font-size: 60px;
+            color: #A45212;
+        }
+
+        &__winner_blue {
+            font-family: 'Klee One';
+            @include no-block-margins;
+            font-weight: 700;
+            font-size: 60px;
+            color: rgba(43, 177, 255, 1);
+        }
+
+        &__winner_draw {
+            font-family: 'Klee One';
+            @include no-block-margins;
+            font-weight: 700;
+            font-size: 60px;
+            color: #F3832D;
+        }
+
+        &__winner_img {
+            @include background-img-setup;
+            height: 300px;
+            width: 250px;
+        }
+
+        .winner-blue {
+            background-image: url(/public/assets/img/game-over/foods/food_winner_blue_chess_pawn.png);
+        }
+
+        .winner-orange {
+            background-image: url(/public/assets/img/game-over/foods/food_winner_orange_chess_pawn.png);
+        }
+
+        .winner-draw {
+            background-image: url(/public/assets/img/game-over/foods/food_score_draw_chess_pawn.png);
+        }
+
+        button {
+            width: 250px;
+            height: 60px;
+            font-family: 'Delius Unicase';
+            font-weight: 400;
+            font-size: 24px;
+            color: #FFFFFF;
+            background-color: #F3832D;
+            padding: 16px 24px 16px 24px;
+            @include flex-center;
+        }
+
+    }
+
 
 }
