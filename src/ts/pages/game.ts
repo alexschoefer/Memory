@@ -221,5 +221,9 @@ function showFinalScore(): void {
 function showFinalScoreBackground(theme: Theme): void {
     if(theme === 'food') {
         document.body.style.backgroundColor = "#F3832D";
+    }else if(theme === 'projects') {
+        document.body.style.backgroundColor = "#1E7594";
+    }else {
+        return;
     }
 }

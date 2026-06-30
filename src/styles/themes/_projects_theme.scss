@@ -4,59 +4,311 @@
 body[data-theme="projects-theme"] {
   --color-bg: #FFFFFF;
 
+
   .game-header {
     border-radius: 10px;
-    background-color: rgba(240, 243, 244, 1);
+    background-color: #F0F3F4;
 
     &__nav-scoreboard-container {
       justify-content: center;
       align-items: center;
-      padding: 17px 20px 17px 20px;
-      height: 55px;
+      padding: 12px 20px 12px 20px;
+      height: 40px;
+      background-color: #FFFFFF;
+      @include no-block-margins;
+      margin-left: 16px;
+      border-radius: 10px;
     }
 
     &__exit {
       padding: 12px 20px 12px 20px;
       border-radius: 10px;
-      background-color: rgba(191, 229, 242, 1)
-    }
-
-    .matched {
-      border: 3px solid #ED1B76;
-      box-shadow: 6px 6px 8px rgba(237, 27, 118, 0.3)
-    }
-  
-    &__current-player {
-      @include flex-row-space-btw;
-      gap: 16px;
-      align-items: center;
-  
-      &-img {
-        width: 29px;
-        height: 24px;
-      }
-  
-      p {
-        font-family: $font-content;
-        font-size: 24px;
-        font-weight: 700;
-        color: #1E7594;
-        width: 188px;
-      }
-    }
-
-    &__exit {
+      background-color: #BFE5F2;
+      font-family: 'Figtree';
       color: #1E7594;
       font-size: 20px;
 
-
       span {
+        @include background-img-setup;
+        background-image: url("/public/assets/img/game/projects_exit_button.png");
+        height: 30px;
+        width: 30px;
+        transform: none;
+      }
+
+      &:hover {
+        background-color: #1E7594;
+        transform: none;
+        color: #FFFFFF;
+
+        span {
           @include background-img-setup;
-          background-image: url("/public/assets/img/game/projects_exit_button.png");
+          background-image: url("/public/assets/img/game/exit_button.png");
           height: 30px;
           width: 30px;
+          transform: none;
+        }
       }
+    }
+
+    &__current-player {
+      @include flex-row-space-btw;
+      gap: 10px;
+      align-items: center;
+
+      &-img {
+        width: 38px;
+        height: 34px;
+        padding: 2px;
+      }
+
+      p {
+        font-family: 'Figtree';
+        font-size: 24px;
+        font-weight: 700;
+        color: #1E7594;
+        @include no-block-margins;
+      }
+
+      .activePlayerBlue {
+        background-color: #097FC5;
+      }
+
+      .activePlayerOrange {
+        background-color: #EA6900;
+      }
+    }
+
+    &__nav-players {
+
+      img {
+        width: 100%;
+        height: 28px;
+        margin: 0;
+      }
+    }
+
+    &__playerOrange {
+      font-family: 'Figtree';
+      color: #EA6900;
+    }
+
+    &__playerBlue {
+      font-family: 'Figtree';
+      color: #097FC5;
+    }
   }
+
+  .matched {
+    border: 2px solid #1E7594;
+    background-color: #F0FBFF;
+    height: 116px;
+    width: 116px;
+  }
+
+  .game-exit-overlay {
+
+    &__container {
+      background-color: #F0F6F9;
+    }
+
+    & p {
+      font-family: 'Figtree';
+      font-weight: 700;
+      font-size: 28px;
+      text-align: center;
+    }
+
+    &__buttons {
+      width: 360px;
+    }
+
+    &__button_quit {
+      background-color: #FD8A81;
+      font-family: 'Figtree';
+      font-size: 16px;
+      font-weight: 700;
+      color: #FFFFFF;
+      width: 100%;
+      padding: 12px 20px 12px 20px;
+
+      &:hover {
+        background-color: #ED5B50;
+        color: #FFFFFF
+      }
+    }
+
+    &__button_back {
+      background-color: #BFE5F2;
+      font-family: 'Figtree';
+      font-size: 16px;
+      font-weight: 700;
+      color: #1E7594;
+      width: 100%;
+      @include no-block-margins;
+      padding: 12px 20px 12px 20px;
+
+      &:hover {
+        background-color: #1E7594;
+        color: #FFFFFF
+      }
+    }
+  }
+
+  .score {
+    height: 100vh;
+
+    h3 {
+      color: #ED1B76;
+      font-family: 'Figtree';
+      font-size: 124px;
+      font-weight: 900;
+      line-break: 7%;
+    }
+
+
+    &__subtitle {
+      color: white;
+      font-family: 'Figtree';
+      font-size: 42px;
+      font-weight: 700;
+      line-break: 7%;
+    }
+
+    &__final-score {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__final-scoreboard-container {
+      background-color: #FFFFFF;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      width: 380px;
+      height: 80px;
+      gap: 40px;
+      border-radius: 10px;
+    }
+
+    &__final-scoreBoardPlayerOrange-img,
+    &__final-scoreBoardPlayerBlue-img {
+      width: 24px;
+      height: 30px;
+    }
+
+    &__final-players {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    &__final-playerOrange {
+      font-size: 28px;
+      font-weight: 700;
+      font-family: 'Figtree';
+      color: #EA6900;
+    }
+
+    &__final-playerBlue {
+      font-size: 28px;
+      font-weight: 700;
+      font-family: 'Figtree';
+      color: #097FC5;
+    }
+  }
+
+  .game-over {
+    gap: 20px;
+    max-width: 1440px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+
+    &__confetti {
+      max-width: 1200px;
+      height: 350px;
+    }
+
+    &__endscreen {
+      width: 430px;
+      height: 580px;
+      gap: 20px;
+      @include flex-center;
+    }
+
+    &__winner {
+      font-family: 'Figtree';
+      @include no-block-margins;
+      font-weight: 400;
+      font-size: 40px;
+      color: #FFFFFF;
+      line-break: 7%;
+    }
+
+    &__winner_orange {
+      font-family: 'Figtree';
+      @include no-block-margins;
+      font-weight: 700;
+      font-size: 80px;
+      color: #FFFFFF;
+
+    }
+
+    &__winner_blue {
+      font-family: 'Figtree';
+      @include no-block-margins;
+      font-weight: 700;
+      font-size: 80px;
+      color: #FFFFFF;
+    }
+
+    &__winner_draw {
+      font-family: 'Figtree';
+      @include no-block-margins;
+      font-weight: 800;
+      font-size: 128px;
+      color: #FD5B4F;
+      line-break: 7%;
+    }
+
+    &__winner_img {
+      @include background-img-setup;
+      height: 250px;
+      width: 200px;
+    }
+
+    .winner-blue {
+      background-image: url(/public/assets/img/game-over/projects/winner_blue_projects_chess_pawn.png);
+    }
+
+    .winner-orange {
+      background-image: url(/public/assets/img/game-over/projects/winner_orange_projects_chess_pawn.png);
+    }
+
+    .winner-draw {
+      background-image: url(/public/assets/img/game-over/projects/projects_draw_chess_pawn.png);
+    }
+
+    button {
+      width: 250px;
+      height: 60px;
+      font-family: 'Figtree';
+      font-weight: 700;
+      font-size: 24px;
+      color: #1E7594;
+      padding: 16px 24px 16px 24px;
+      @include flex-center;
+      border-radius: 10px;
+      background-color: #BFE5F2;
+    }
+
   }
 
 

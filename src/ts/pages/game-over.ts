@@ -37,14 +37,14 @@ export function showGameOverScreen(winner: "blue" | "orange" | "draw"): void {
         winnerText.textContent = "The winner is";
         winnerPlayer.textContent = "Blue Player";
         winnerPlayer.className = "game-over__winner_blue";
-        winnerImage.className ="game-over__winner_img winner-blue";
+        winnerImage.className = "game-over__winner_img winner-blue";
     }
 
     else if (winner === "orange") {
         winnerText.textContent = "The winner is";
         winnerPlayer.textContent = "Orange Player";
         winnerPlayer.className = "game-over__winner_orange";
-        winnerImage.className ="game-over__winner_img winner-orange";
+        winnerImage.className = "game-over__winner_img winner-orange";
     }
 
     else {
@@ -56,9 +56,11 @@ export function showGameOverScreen(winner: "blue" | "orange" | "draw"): void {
 }
 
 function switchGameOverBackground(theme: Theme) {
-    if(theme === 'food') {
+    if (theme === 'food') {
         document.body.style.backgroundColor = "#F6F6F6";
-    }else{
-        return;
+    } else if (theme === 'projects') {
+        document.body.style.backgroundColor = "#1E7594";
+    } else {
+        return
     }
 }
