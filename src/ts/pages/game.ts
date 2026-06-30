@@ -187,13 +187,8 @@ function showScoreBoard(theme: GameSettings["theme"]) {
 
 function updateScoreboard(player: GameSettings["player"]): void {
     scores[player]++;
-
-    const scoreElement = document.getElementById(
-        `score-${player}`
-    );
-
+    const scoreElement = document.getElementById(`score-${player}`);
     if (!scoreElement) return;
-
     scoreElement.textContent = String(scores[player]);
 }
 
@@ -208,14 +203,9 @@ function endGame(): void {
 }
 
 function showFinalScore(): void {
-    document
-        .querySelectorAll(".page")
-        .forEach(page => page.classList.remove("page--active"));
-
-    document
-        .getElementById("score")
-        ?.classList.add("page--active");
-
+    document.querySelectorAll(".page").forEach(page => page.classList.remove("page--active"));
+    document.getElementById("score")?.classList.add("page--active");
+    showFinalScoreBackground(gameSettings.theme);
     const blueScore = document.getElementById("final-score-blue");
     const orangeScore = document.getElementById("final-score-orange");
 
@@ -225,5 +215,11 @@ function showFinalScore(): void {
 
     if (orangeScore) {
         orangeScore.textContent = String(scores.orange);
+    }
+}
+
+function showFinalScoreBackground(theme: Theme): void {
+    if(theme === 'food') {
+        document.body.style.backgroundColor = "#F3832D";
     }
 }

@@ -19,9 +19,9 @@
     &__nav-scoreboard-container {
         @include flex-row-space-btw;
         width: 100%;
-        max-width: 375px;
+        max-width: 350px;
         gap: 20px;
-        height: 60px;
+        height: 50px;
     }
 
     &__nav-players {
@@ -73,7 +73,6 @@
 
     &__exit {
         @include flex-space-btw;
-        padding: 16px;
         gap: 16px;
         font: inherit;
         font-family: $font-content;
