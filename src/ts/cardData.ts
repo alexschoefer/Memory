@@ -56,8 +56,8 @@ export const cardSets = {
         ],
         back: "public/assets/img/cards/basic/basic_card_projects_front.png",
         player: {
-            playerBlue:"./public/assets/img/game/playerLabel_blue.png",
-            playerOrange: "./public/assets/img/game/playerLabel_orange.png",
+            playerBlue:"./public/assets/img/game/chess_pawn.png",
+            playerOrange: "./public/assets/img/game/chess_pawn.png",
             scoreBlue: "./public/assets/img/game/playerLabel_blue.png",
             scoreOrange:"./public/assets/img/game/playerLabel_orange.png"
         },

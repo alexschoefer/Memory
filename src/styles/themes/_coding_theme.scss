@@ -91,23 +91,71 @@ body[data-theme="coding-theme"] {
   }
 
   .score {
-    background-color: #303131;
+    height: 100vh;
 
     h3 {
-      color: #4DD5BC;
-      font-family: 'Orbitron';
-      font-size: 124px;
-      box-shadow: -7px 0px 8px 0px rgba(77, 213, 188, 0.5);
+        color: rgba(77, 213, 188, 1);
+        font-family: 'Red Rose';
+        font-size: 200px;
+        font-weight: 800;
+        line-break: 7%;
+        @include no-block-margins;
     }
+
 
     &__subtitle {
-      color: white;
-      font-family: $font-content;
-      font-size: 26px;
-      font-weight: 400;
-
+        color: white;
+        font-family: 'Red Rose';
+        font-size: 26px;
+        font-weight: 400;
+        text-align: center;
     }
-  }
+
+    &__final-score {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__final-scoreboard-container {
+        background-color: rgba(134, 233, 214, 0.2);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 350px;
+        height: 80px;
+        gap: 40px;
+    }
+
+    &__final-scoreBoardPlayerOrange-img, &__final-scoreBoardPlayerBlue-img {
+        width: 24px;
+        height: 30px;
+    }
+
+    &__final-players {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__final-playerOrange {
+        font-size: 28px;
+        font-weight: 700;
+        font-family: 'Red Rose';
+        color: rgba(245, 142, 57, 1);
+    }
+
+    &__final-playerBlue {
+        font-size: 28px;
+        font-weight: 700;
+        font-family: 'Red Rose';
+        color: rgba(43, 177, 255, 1);
+    }
+}
 
   .game-over {
     gap: 20px;

@@ -147,10 +147,16 @@ function showCurrentPlayer(theme: GameSettings["theme"], player: GameSettings["p
 
     if (!playerImg) return;
 
+    console.log(gameSettings.theme);
+    
+
     playerImg.src =
         player === "blue"
             ? cardSets[theme].player.playerBlue
             : cardSets[theme].player.playerOrange;
+
+    console.log(cardSets[theme].player.playerBlue);
+    
 
     playerImg.classList.remove("activePlayerBlue", "activePlayerOrange");
 
@@ -172,17 +178,22 @@ function showScoreBoard(theme: GameSettings["theme"]) {
     const scoreBoardImgBlue = document.querySelector<HTMLImageElement>(".current-scoreBoardPlayerBlue-img");
     const scoreBoardImgOrange = document.querySelector<HTMLImageElement>(".current-scoreBoardPlayerOrange-img");
 
+    console.log(gameSettings.theme);
+    
     if (!scoreBoardImgBlue || !scoreBoardImgOrange) return;
 
     if (theme === 'coding') {
         scoreBoardImgBlue.src = "./public/assets/img/game/playerLabel_blue.png";
         scoreBoardImgOrange.src = "./public/assets/img/game/playerLabel_orange.png";
-    }
-
-    if (theme === 'gaming' || 'food' || 'projects') {
+    }else if (theme === 'gaming' || 'food' || 'projects') {
         scoreBoardImgBlue.src = "./public/assets/img/game/chess_blue_pawn.png";
         scoreBoardImgOrange.src = "./public/assets/img/game/chess_orange_pawn.png";
+    }else {
+        return;
     }
+
+    console.log(scoreBoardImgBlue.src);
+    
 }
 
 function updateScoreboard(player: GameSettings["player"]): void {

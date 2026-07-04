@@ -11,9 +11,13 @@ body[data-theme="food-theme"] {
         &__nav-scoreboard-container {
             justify-content: center;
             align-items: center;
-            padding: 17px 20px 17px 20px;
-            height: 55px;
-        }
+            padding: 12px 20px 12px 20px;
+            height: 40px;
+            background-color: #FFFFFF;
+            @include no-block-margins;
+            margin-left: 16px;
+            border-radius: 10px;
+          }
 
         &__exit {
             padding: 12px 20px 12px 20px;
@@ -76,10 +80,12 @@ body[data-theme="food-theme"] {
 
         &__playerOrange {
             font-family: 'Delius Unicase';
+            color: #EA6900;
         }
 
         &__playerBlue {
             font-family: 'Delius Unicase';
+            color: #097FC5;
         }
     }
 

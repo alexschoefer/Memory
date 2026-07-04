@@ -21,6 +21,12 @@ export function getWinner(scores: Scores): "blue" | "orange" | "draw" {
     return "draw";
 }
 
+
+/**
+ * 
+ * @param winner 
+ * @returns 
+ */
 export function showGameOverScreen(winner: "blue" | "orange" | "draw"): void {
     document.querySelectorAll(".page").forEach(page => page.classList.remove("page--active"));
     const page = document.getElementById("game_over");
@@ -55,6 +61,13 @@ export function showGameOverScreen(winner: "blue" | "orange" | "draw"): void {
     }
 }
 
+
+/**
+ * Help function to switch the background color with the selected them.
+ * 
+ * @param theme 
+ * @returns 
+ */
 function switchGameOverBackground(theme: Theme) {
     if (theme === 'food') {
         document.body.style.backgroundColor = "#F6F6F6";
