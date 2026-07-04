@@ -62,8 +62,8 @@ export const cardSets = {
             scoreOrange:"./public/assets/img/game/playerLabel_orange.png"
         },
         winner: {
-            playerBlue:"public/assets/img/game-over/coding/winner_blue_chess_pawn.png",
-            playerOrange:"public/assets/img/game-over/coding/winner_orange_chess_pawn.png",
+            playerBlue:"./public/assets/img/game/chess_pawn.png",
+            playerOrange: "./public/assets/img/game/chess_pawn.png",
             draw:"public/assets/img/game-over/coding/final_score_draw.png"
         }
     },

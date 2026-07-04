@@ -21,6 +21,10 @@ export const scores = {
     orange: 0,
 };
 
+/**
+ * 
+ */
+
 export function initSettings(): void {
     initThemeSelection();
     initBoardSizeSelection();

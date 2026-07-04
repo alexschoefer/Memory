@@ -15,9 +15,45 @@ body[data-theme="coding-theme"] {
       max-height: 54px;
       justify-content: center;
       align-items: center;
-      
+
       height: 55px;
       width: 100%;
+    }
+
+    &__current-player {
+      flex-direction: row;
+    }
+
+    &__exit {
+      padding: 12px 20px 12px 20px;
+      border-radius: 10px;
+      font-family: 'Red Rose';
+      color: #FFFFFF;
+      font-size: 20px;
+      background-color: rgba(134, 233, 214, 0.14);
+      border: 2px solid #4DD5BC;
+
+      span {
+        @include background-img-setup;
+        background-image: url("/public/assets/img/game/exit_button.png");
+        height: 22px;
+        width: 22px;
+      }
+
+      &:hover {
+        background-color: #86E9D642;
+        border: 3px solid #4DD5BC;
+        box-shadow: 4px 4px 6px 0 rgba(77, 213, 188, 0.2);
+        transform: none;
+        color: #FFFFFF;
+
+        span {
+          @include background-img-setup;
+          height: 22px;
+          width: 22px;
+          transform: none;
+        }
+      }
     }
   }
 
