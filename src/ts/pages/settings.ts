@@ -1,8 +1,8 @@
 import { cardSets } from "../cardData";
 
-export type Theme = keyof typeof cardSets;
-type Player = "blue" | "orange";
-type BoardSize = 16 | 24 | 36;
+export type Theme = "Theme" | "coding" | "gaming" | "projects" | "food";
+type Player = "Player" | "blue" | "orange";
+type BoardSize = "Size" | 16 | 24 | 36;
 
 export type GameSettings = {
     theme: Theme;
@@ -11,9 +11,9 @@ export type GameSettings = {
 };
 
 export const gameSettings: GameSettings = {
-    theme: "coding",
-    player: "blue",
-    boardSize: 16,
+    theme: "Theme",
+    player: "Player",
+    boardSize: "Size",
 };
 
 export const scores = {
@@ -24,7 +24,6 @@ export const scores = {
 /**
  * 
  */
-
 export function initSettings(): void {
     initThemeSelection();
     initBoardSizeSelection();
@@ -116,7 +115,8 @@ function isTheme(value: string): value is Theme {
         value === "coding" ||
         value === "gaming" ||
         value === "projects" ||
-        value === "food"
+        value === "food" ||
+        value === "Theme"
     );
 }
 

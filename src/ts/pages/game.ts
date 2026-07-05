@@ -6,7 +6,7 @@ import { cardSets } from "../cardData";
 let firstCard: HTMLElement | null = null;
 let secondCard: HTMLElement | null = null;
 let lockBoard = false;
-let currentPlayer: GameSettings["player"] = gameSettings.player;
+let currentPlayer: "blue" | "orange" = gameSettings.player as "blue" | "orange";
 let matchedPairs = 0;
 
 export function startGame(): void {
@@ -18,9 +18,9 @@ export function startGame(): void {
 }
 
 function createDeck(settings: GameSettings): string[] {
-    const allCards = cardSets[settings.theme];
+    const allCards = cardSets[settings.theme as keyof typeof cardSets];
 
-    const selected = allCards.card.slice(0, settings.boardSize / 2);
+    const selected = allCards.card.slice(0, Number(settings.boardSize) / 2);
 
     return shuffle([...selected, ...selected]);
 }
@@ -59,7 +59,7 @@ function createCard(imagePath: string, theme: Theme): HTMLElement {
     const back = card.querySelector(".card__face--back") as HTMLElement;
 
     front.style.backgroundImage = `url(${imagePath})`;
-    back.style.backgroundImage = `url(${cardSets[theme].back})`;
+    back.style.backgroundImage = `url(${cardSets[theme as keyof typeof cardSets].back})`;
 
     card.dataset.image = imagePath;
 
@@ -104,7 +104,7 @@ function checkForMatch(): void {
 
         matchedPairs++;
 
-        updateScoreboard(gameSettings.player);
+        updateScoreboard(gameSettings.player as "blue" | "orange");
 
         resetCards();
 
@@ -147,16 +147,10 @@ function showCurrentPlayer(theme: GameSettings["theme"], player: GameSettings["p
 
     if (!playerImg) return;
 
-    console.log(gameSettings.theme);
-    
-
     playerImg.src =
         player === "blue"
-            ? cardSets[theme].player.playerBlue
-            : cardSets[theme].player.playerOrange;
-
-    console.log(cardSets[theme].player.playerBlue);
-    
+            ? cardSets[theme as keyof typeof cardSets].player.playerBlue
+            : cardSets[theme as keyof typeof cardSets].player.playerOrange;
 
     playerImg.classList.remove("activePlayerBlue", "activePlayerOrange");
 
@@ -196,7 +190,7 @@ function showScoreBoard(theme: GameSettings["theme"]) {
     
 }
 
-function updateScoreboard(player: GameSettings["player"]): void {
+function updateScoreboard(player: "blue" | "orange"): void {
     scores[player]++;
     const scoreElement = document.getElementById(`score-${player}`);
     if (!scoreElement) return;

@@ -134,7 +134,7 @@ export const cardSets = {
             playerOrange:"public/assets/img/game-over/gaming/gaming_winner.png",
             draw:"public/assets/img/game-over/gaming/final_score_gaming_draw.png"
         }
-    }
+    },
 } as const;
 
 
