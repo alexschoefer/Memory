@@ -6,9 +6,12 @@ import { cardSets } from "../cardData";
 let firstCard: HTMLElement | null = null;
 let secondCard: HTMLElement | null = null;
 let lockBoard = false;
-let currentPlayer: "blue" | "orange" = gameSettings.player as "blue" | "orange";
 let matchedPairs = 0;
 
+/**
+ * Starts a new game by creating the deck, rendering the game board,
+ * initializing all card interactions and updating the player UI.
+ */
 export function startGame(): void {
     const deck = createDeck(gameSettings);
     renderBoard(deck, gameSettings.boardSize);
@@ -17,6 +20,13 @@ export function startGame(): void {
     showScoreBoard(gameSettings.theme)
 }
 
+/**
+ * Creates a shuffled deck based on the selected game settings.
+ * The deck contains matching pairs for the chosen board size.
+ *
+ * @param settings The current game settings.
+ * @returns A shuffled array containing all card image paths.
+ */
 function createDeck(settings: GameSettings): string[] {
     const allCards = cardSets[settings.theme as keyof typeof cardSets];
 
@@ -25,6 +35,12 @@ function createDeck(settings: GameSettings): string[] {
     return shuffle([...selected, ...selected]);
 }
 
+/**
+ * Renders the game board with the given cards.
+ *
+ * @param cards The shuffled deck to display.
+ * @param size The selected board size.
+ */
 function renderBoard(cards: string[], size: GameSettings["boardSize"]): void {
     const board = document.querySelector<HTMLElement>(".game-cards");
     if (!board) return;
@@ -38,6 +54,13 @@ function renderBoard(cards: string[], size: GameSettings["boardSize"]): void {
     });
 }
 
+/**
+ * Returns a shuffled copy of the provided array using
+ * the Fisher-Yates shuffle algorithm.
+ *
+ * @param array The array to shuffle.
+ * @returns A new shuffled array.
+ */
 function shuffle<T>(array: T[]): T[] {
     const arr = [...array];
 
@@ -49,7 +72,14 @@ function shuffle<T>(array: T[]): T[] {
     return arr;
 }
 
-
+/**
+ * Creates a single card element from the HTML template
+ * and assigns the corresponding front and back images.
+ *
+ * @param imagePath The image displayed on the front side.
+ * @param theme The currently selected game theme.
+ * @returns The generated card element.
+ */
 function createCard(imagePath: string, theme: Theme): HTMLElement {
     const template = document.getElementById("card-template") as HTMLTemplateElement;
 
@@ -66,11 +96,20 @@ function createCard(imagePath: string, theme: Theme): HTMLElement {
     return card;
 }
 
+/**
+ * Registers the click event listener for the game board.
+ */
 function initCardEvents(): void {
     const board = document.querySelector<HTMLElement>(".game-cards");
     if (!board) return;
     board.addEventListener("click", handleCardClick);
 }
+
+/**
+ * Handles card selection and manages the current turn.
+ *
+ * @param event The click event triggered on the game board.
+ */
 
 function handleCardClick(event: Event): void {
     if (lockBoard) return;
@@ -93,26 +132,24 @@ function handleCardClick(event: Event): void {
 
 }
 
+/**
+ * Compares the two selected cards, updates the score,
+ * switches the active player if necessary and checks
+ * whether the game has ended.
+ */
 function checkForMatch(): void {
     if (!firstCard || !secondCard) return;
-
     const isMatch = firstCard.dataset.image === secondCard.dataset.image;
-
     if (isMatch) {
         firstCard.classList.add("matched");
         secondCard.classList.add("matched");
-
         matchedPairs++;
-
         updateScoreboard(gameSettings.player as "blue" | "orange");
-
         resetCards();
-
         if (isGameOver(matchedPairs, gameSettings)) {
             endGame();
             return;
         }
-
         return;
     }
 
@@ -128,11 +165,18 @@ function checkForMatch(): void {
     }, 1000);
 }
 
+/**
+ * Resets the currently selected cards and unlocks the board
+ * for the next turn.
+ */
 function resetCards(): void {
     [firstCard, secondCard] = [null, null];
     lockBoard = false;
 }
 
+/**
+ * Resets the complete game state so a new game can be started.
+ */
 export function resetGame(): void {
     firstCard = null;
     secondCard = null;
@@ -142,11 +186,15 @@ export function resetGame(): void {
     scores.orange = 0;
 }
 
+/**
+ * Updates the current player indicator in the game header.
+ *
+ * @param theme The active game theme.
+ * @param player The player whose turn it is.
+ */
 function showCurrentPlayer(theme: GameSettings["theme"], player: GameSettings["player"]): void {
     const playerImg = document.querySelector<HTMLImageElement>(".game-header__current-player-img");
-
     if (!playerImg) return;
-
     playerImg.src =
         player === "blue"
             ? cardSets[theme as keyof typeof cardSets].player.playerBlue
@@ -160,6 +208,12 @@ function showCurrentPlayer(theme: GameSettings["theme"], player: GameSettings["p
     );
 }
 
+/**
+ * Switches the active player and updates the player indicator.
+ *
+ * @param theme The active game theme.
+ * @param player The current player before switching.
+ */
 function switchPlayer(theme: GameSettings["theme"], player: GameSettings["player"]): void {
     gameSettings.player =
         gameSettings.player === "blue" ? "orange" : "blue";
@@ -167,29 +221,37 @@ function switchPlayer(theme: GameSettings["theme"], player: GameSettings["player
     showCurrentPlayer(theme, gameSettings.player);
 }
 
-function showScoreBoard(theme: GameSettings["theme"]) {
-    if (!theme) return;
-    const scoreBoardImgBlue = document.querySelector<HTMLImageElement>(".current-scoreBoardPlayerBlue-img");
-    const scoreBoardImgOrange = document.querySelector<HTMLImageElement>(".current-scoreBoardPlayerOrange-img");
+/**
+ * Updates the scoreboard icons according to the selected theme.
+ *
+ * @param theme The active game theme.
+ */
+function showScoreBoard(theme: GameSettings["theme"]): void {
+    const scoreBoardImgBlue = document.querySelector<HTMLImageElement>(
+        ".current-scoreBoardPlayerBlue-img"
+    );
 
-    console.log(gameSettings.theme);
-    
+    const scoreBoardImgOrange = document.querySelector<HTMLImageElement>(
+        ".current-scoreBoardPlayerOrange-img"
+    );
+
     if (!scoreBoardImgBlue || !scoreBoardImgOrange) return;
 
-    if (theme === 'coding') {
+    if (theme === "coding") {
         scoreBoardImgBlue.src = "./public/assets/img/game/playerLabel_blue.png";
         scoreBoardImgOrange.src = "./public/assets/img/game/playerLabel_orange.png";
-    }else if (theme === 'gaming' || 'food' || 'projects') {
+    } else {
         scoreBoardImgBlue.src = "./public/assets/img/game/chess_blue_pawn.png";
         scoreBoardImgOrange.src = "./public/assets/img/game/chess_orange_pawn.png";
-    }else {
-        return;
     }
-
-    console.log(scoreBoardImgBlue.src);
-    
 }
 
+/**
+ * Increases the score of the given player and updates
+ * the scoreboard UI.
+ *
+ * @param player The player who found a matching pair.
+ */
 function updateScoreboard(player: "blue" | "orange"): void {
     scores[player]++;
     const scoreElement = document.getElementById(`score-${player}`);
@@ -197,6 +259,10 @@ function updateScoreboard(player: "blue" | "orange"): void {
     scoreElement.textContent = String(scores[player]);
 }
 
+/**
+ * Displays the final score and transitions
+ * to the game over screen.
+ */
 function endGame(): void {
     showFinalScore();
 
@@ -207,6 +273,10 @@ function endGame(): void {
     }, 3000);
 }
 
+/**
+ * Displays the final score screen and updates
+ * both players' scores.
+ */
 function showFinalScore(): void {
     document.querySelectorAll(".page").forEach(page => page.classList.remove("page--active"));
     document.getElementById("score")?.classList.add("page--active");
@@ -223,6 +293,12 @@ function showFinalScore(): void {
     }
 }
 
+/**
+ * Updates the background color of the final score screen
+ * based on the selected game theme.
+ *
+ * @param theme The active game theme.
+ */
 function showFinalScoreBackground(theme: Theme): void {
     if(theme === 'food') {
         document.body.style.backgroundColor = "#F3832D";
