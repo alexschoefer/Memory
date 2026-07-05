@@ -5,10 +5,24 @@ export type Scores = {
     orange: number;
 };
 
+/**
+ * Checks whether all card pairs have been matched.
+ *
+ * @param matchedPairs Number of matched card pairs.
+ * @param settings The current game settings.
+ * @returns `true` if all pairs have been found; otherwise `false`.
+ */
 export function isGameOver(matchedPairs: number, settings: GameSettings): boolean {
     return matchedPairs === Number(settings.boardSize) / 2;
 }
 
+/**
+ * Determines the winner based on the current scores.
+ *
+ * @param scores The final scores of both players.
+ * @returns `"blue"` if the blue player wins, `"orange"` if the orange player wins,
+ * or `"draw"` if both players have the same score.
+ */
 export function getWinner(scores: Scores): "blue" | "orange" | "draw" {
     if (scores.blue > scores.orange) {
         return "blue";
@@ -21,11 +35,11 @@ export function getWinner(scores: Scores): "blue" | "orange" | "draw" {
     return "draw";
 }
 
-
 /**
- * 
- * @param winner 
- * @returns 
+ * Displays the game over screen and updates its content
+ * based on the winning player.
+ *
+ * @param winner The winning player or `"draw"` if the game ended in a tie.
  */
 export function showGameOverScreen(winner: "blue" | "orange" | "draw"): void {
     document.querySelectorAll(".page").forEach(page => page.classList.remove("page--active"));
@@ -63,8 +77,8 @@ export function showGameOverScreen(winner: "blue" | "orange" | "draw"): void {
 
 
 /**
- * Help function to switch the background color with the selected them.
- * 
+ * Helper function that updates the background color
+ * based on the selected theme.
  * @param theme 
  * @returns 
  */
