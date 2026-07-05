@@ -30,6 +30,7 @@ export function initSettings(): void {
     initPlayerSelection();
     loadSavedTheme();
     updateSettingsPreview();
+    readyToStartTheGame();
 }
 
 /* ---------------------------
@@ -101,6 +102,7 @@ function initThemeSelection(): void {
 
             if (theme && isTheme(theme)) {
                 handleThemeChange(theme);
+                readyToStartTheGame();
             }
         });
     });
@@ -115,8 +117,7 @@ function isTheme(value: string): value is Theme {
         value === "coding" ||
         value === "gaming" ||
         value === "projects" ||
-        value === "food" ||
-        value === "Theme"
+        value === "food"
     );
 }
 
@@ -130,6 +131,7 @@ function initBoardSizeSelection(): void {
             const value = Number(input.value) as BoardSize;
             gameSettings.boardSize = value;
             updateSettingsPreview();
+            readyToStartTheGame();
         });
     });
 }
@@ -143,6 +145,7 @@ function initPlayerSelection(): void {
         input.addEventListener("change", () => {
             gameSettings.player = input.value as Player;
             updateSettingsPreview();
+            readyToStartTheGame();
         });
     });
 }
@@ -157,4 +160,28 @@ function updateSettingsPreview(): void {
     theme.textContent = gameSettings.theme;
     player.textContent = gameSettings.player;
     boardSize.textContent = `${gameSettings.boardSize} cards`;
+}
+
+function readyToStartTheGame(): void {
+    const startButton = document.getElementById("start-game-btn") as HTMLButtonElement;
+
+    if (!startButton) return;
+
+    const themeSelected = document.querySelector(
+        'input[name="theme"]:checked'
+    );
+
+    const playerSelected = document.querySelector(
+        'input[name="player"]:checked'
+    );
+
+    const boardSizeSelected = document.querySelector(
+        'input[name="board-size"]:checked'
+    );
+
+    startButton.disabled = !(
+        themeSelected &&
+        playerSelected &&
+        boardSizeSelected
+    );
 }

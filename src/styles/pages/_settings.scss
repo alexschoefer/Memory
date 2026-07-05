@@ -68,6 +68,8 @@
         inset: 6px;
         background: #303131;
         border-radius: 50%;
+        font-weight: 700;
+        font-size: 20px;
     }
 
     li {
@@ -146,12 +148,28 @@
         padding: 14px 20px 14px 20px;
         width: 126px;
         height: 55px;
+        background-color: rgba(219, 219, 214, 1);
+        transform: none;
 
         span:first-child {
-            background-image: url("/public/assets/img/settings/smart_display.png");
+            background-image: url("/public/assets/img/settings/disable_smart_display.png");
             @include background-img-setup;
             height: 24px;
             width: 24px;
+            transform: none;
         }
+
+        &:enabled {
+            cursor: pointer;
+    
+            span:first-child {
+                background-image: url("/public/assets/img/settings/smart_display.png");
+                transform: none;
+            }
+        }
+    }
+
+    button:not(:disabled) {
+        background-color: rgba(240, 234, 110, 1);
     }
 }

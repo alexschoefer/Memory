@@ -6,7 +6,7 @@ export type Scores = {
 };
 
 export function isGameOver(matchedPairs: number, settings: GameSettings): boolean {
-    return matchedPairs === settings.boardSize / 2;
+    return matchedPairs === Number(settings.boardSize) / 2;
 }
 
 export function getWinner(scores: Scores): "blue" | "orange" | "draw" {
