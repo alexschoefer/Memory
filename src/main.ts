@@ -26,6 +26,7 @@ document.getElementById("go_back_btn")?.addEventListener("click", () => {
     document.querySelectorAll(".page").forEach(page => page.classList.remove("page--active"));
     showCurrentPage("start-page");
     setCurrentTheme("start-theme");
+    document.body.style.backgroundColor = "";
     resetGame();
 });
 
