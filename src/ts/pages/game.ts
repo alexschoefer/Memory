@@ -184,6 +184,20 @@ export function resetGame(): void {
     matchedPairs = 0;
     scores.blue = 0;
     scores.orange = 0;
+    renderScoreboard();
+}
+
+function renderScoreboard(): void {
+    const blue = document.getElementById("score-blue");
+    const orange = document.getElementById("score-orange");
+
+    if (blue) {
+        blue.textContent = String(scores.blue);
+    }
+
+    if (orange) {
+        orange.textContent = String(scores.orange);
+    }
 }
 
 /**
@@ -257,6 +271,7 @@ function updateScoreboard(player: "blue" | "orange"): void {
     const scoreElement = document.getElementById(`score-${player}`);
     if (!scoreElement) return;
     scoreElement.textContent = String(scores[player]);
+    renderScoreboard();
 }
 
 /**

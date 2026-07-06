@@ -62,6 +62,7 @@ function goBackToSettings() {
 
     overlay.classList.remove("game-exit-overlay__container--active");
     document.body.classList.remove("no-scroll");
+    resetGame();
 }
 
 
