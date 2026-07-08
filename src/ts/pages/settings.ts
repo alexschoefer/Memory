@@ -22,7 +22,8 @@ export const scores = {
 };
 
 /**
- * 
+ * Initializes all settings controls, restores saved data
+ * and updates the settings preview.
  */
 export function initSettings(): void {
     initThemeSelection();
@@ -33,10 +34,12 @@ export function initSettings(): void {
     readyToStartTheGame();
 }
 
-/* ---------------------------
-   Preview Rendering
----------------------------- */
 
+/**
+ * Updates the theme preview shown in the settings page.
+ *
+ * @param theme The theme to display in the preview.
+ */
 function setPreview(theme: Theme): void {
     const themeVisual = document.getElementById("theme_visual");
 
@@ -46,10 +49,11 @@ function setPreview(theme: Theme): void {
     themeVisual.classList.add(`settings__theme_visual--${theme}`);
 }
 
-/* ---------------------------
-   LocalStorage
----------------------------- */
 
+/**
+ * Loads the previously selected theme from LocalStorage
+ * and updates the preview if a valid theme is found.
+ */
 function loadSavedTheme(): void {
     const savedTheme = localStorage.getItem("gameTheme");
 
@@ -60,6 +64,13 @@ function loadSavedTheme(): void {
     setPreview(gameSettings.theme);
 }
 
+
+/**
+ * Applies the selected theme, updates the preview
+ * and stores the selection in LocalStorage.
+ *
+ * @param theme The selected game theme.
+ */
 function handleThemeChange(theme: Theme): void {
     gameSettings.theme = theme;
 
@@ -68,10 +79,10 @@ function handleThemeChange(theme: Theme): void {
     localStorage.setItem("gameTheme", theme);
 }
 
-/* ---------------------------
-   Event Binding
----------------------------- */
-
+/**
+ * Registers all event listeners for the theme selection.
+ * This includes hover previews and theme selection changes.
+ */
 function initThemeSelection(): void {
     const themeInputs = document.querySelectorAll<HTMLInputElement>(
         'input[name="theme"]'
@@ -108,10 +119,12 @@ function initThemeSelection(): void {
     });
 }
 
-/* ---------------------------
-   Type Guard
----------------------------- */
-
+/**
+ * Checks whether the provided string is a valid game theme.
+ *
+ * @param value The value to validate.
+ * @returns `true` if the value is a supported theme.
+ */
 function isTheme(value: string): value is Theme {
     return (
         value === "coding" ||
@@ -121,6 +134,9 @@ function isTheme(value: string): value is Theme {
     );
 }
 
+/**
+ * Registers the event listeners for the board size selection.
+ */
 function initBoardSizeSelection(): void {
     const inputs = document.querySelectorAll<HTMLInputElement>(
         'input[name="board-size"]'
@@ -136,6 +152,9 @@ function initBoardSizeSelection(): void {
     });
 }
 
+/**
+ * Registers the event listeners for the player selection.
+ */
 function initPlayerSelection(): void {
     const inputs = document.querySelectorAll<HTMLInputElement>(
         'input[name="player"]'
@@ -150,6 +169,10 @@ function initPlayerSelection(): void {
     });
 }
 
+/**
+ * Updates the settings summary with the currently
+ * selected theme, player and board size.
+ */
 function updateSettingsPreview(): void {
     const theme = document.getElementById("selected-theme");
     const player = document.getElementById("selected-player");
@@ -162,6 +185,10 @@ function updateSettingsPreview(): void {
     boardSize.textContent = `${gameSettings.boardSize} cards`;
 }
 
+/**
+ * Enables the start button only after the user has selected
+ * a theme, a player and a board size.
+ */
 function readyToStartTheGame(): void {
     const startButton = document.getElementById("start-game-btn") as HTMLButtonElement;
 
