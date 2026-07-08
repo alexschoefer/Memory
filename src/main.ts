@@ -3,67 +3,73 @@ import { init, setCurrentTheme, showCurrentPage } from "./ts/pages/start";
 import { gameSettings, initSettings } from "./ts/pages/settings";
 import { startGame, resetGame } from "./ts/pages/game";
 
-// Start the app
+// Initialize application
 init();
-
-// Set game settings
-document.getElementById("play-btn")?.addEventListener("click", () => {
-    showCurrentPage("settings-page");
-    setCurrentTheme("settings-theme");
-});
-
 initSettings();
+
+const exitOverlay = document.getElementById("game-exit-overlay");
+
+// Open settings page
+document.getElementById("play-btn")?.addEventListener("click", () => {
+    navigate("settings-page", "settings-theme");
+});
 
 // Start game
 document.getElementById("start-game-btn")?.addEventListener("click", () => {
-    showCurrentPage("game-page");
-    setCurrentTheme(`${gameSettings.theme}-theme`);
+    navigate("game-page", `${gameSettings.theme}-theme`);
     startGame();
 });
 
-// Game-over and return to settings
+// Return to start page after game over
 document.getElementById("go_back_btn")?.addEventListener("click", () => {
-    document.querySelectorAll(".page").forEach(page => page.classList.remove("page--active"));
-    showCurrentPage("start-page");
-    setCurrentTheme("start-theme");
-    document.body.style.backgroundColor = "";
+    navigate("start-page", "start-theme");
     resetGame();
 });
 
+// Exit game overlay
 document.getElementById("exit-game-btn")?.addEventListener("click", showExitOverlay);
+document.getElementById("back_game")?.addEventListener("click", closeExitOverlay);
+document.getElementById("quit_game")?.addEventListener("click", goBackToSettings);
 
+/**
+ * Navigates to the specified page and applies the corresponding theme.
+ *
+ * @param page The id of the page to display.
+ * @param theme The theme to apply to the application.
+ */
+function navigate(page: string, theme: string): void {
+    showCurrentPage(page);
+    setCurrentTheme(theme);
+}
+
+/**
+ * Displays the exit confirmation overlay and prevents
+ * scrolling in the background.
+ */
 function showExitOverlay(): void {
-    const overlay = document.getElementById("game-exit-overlay");
+    if (!exitOverlay) return;
 
-    if (!overlay) return;
-
-    overlay.classList.add("game-exit-overlay__container--active");
+    exitOverlay.classList.add("game-exit-overlay__container--active");
     document.body.classList.add("no-scroll");
 }
 
-document.getElementById("back_game")?.addEventListener("click", closeExitOverlay);
-
+/**
+ * Hides the exit confirmation overlay and restores
+ * page scrolling.
+ */
 function closeExitOverlay(): void {
-    const overlay = document.getElementById("game-exit-overlay");
+    if (!exitOverlay) return;
 
-    if (!overlay) return;
-
-    overlay.classList.remove("game-exit-overlay__container--active");
+    exitOverlay.classList.remove("game-exit-overlay__container--active");
     document.body.classList.remove("no-scroll");
 }
 
-document.getElementById("quit_game")?.addEventListener("click", goBackToSettings);
-
-function goBackToSettings() {
-    showCurrentPage("settings-page");
-    setCurrentTheme("settings-theme");
-    const overlay = document.getElementById("game-exit-overlay");
-
-    if (!overlay) return;
-
-    overlay.classList.remove("game-exit-overlay__container--active");
-    document.body.classList.remove("no-scroll");
+/**
+ * Returns to the settings page, closes the exit overlay
+ * and resets the current game.
+ */
+function goBackToSettings(): void {
+    navigate("settings-page", "settings-theme");
+    closeExitOverlay();
     resetGame();
 }
-
-
